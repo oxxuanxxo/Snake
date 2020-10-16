@@ -58,5 +58,5 @@ dkms.conf
 *.VC.opendb
 *.vcxproj.filters
 *.vcxproj.user
-CProcessing Framework\.vs/
-CProcessing Framework\x64/
+CProcessing Framework/.vs/
+CProcessing Framework/x64/
