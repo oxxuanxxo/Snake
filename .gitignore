@@ -50,3 +50,11 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+*.db
+*.ipch
+*.db-shm
+*.db-wal
+CProcessing Framework/.vs/Processing_Sample/v16/.suo
+CProcessing Framework/.vs/Processing_Sample/v16/Browse.VC.opendb
+CProcessing Framework/Processing_Sample.vcxproj.filters
+CProcessing Framework/Processing_Sample.vcxproj.user

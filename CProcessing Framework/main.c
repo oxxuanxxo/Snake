@@ -11,8 +11,10 @@
 //
 // Copyright © 2020 DigiPen, All rights reserved.
 //---------------------------------------------------------
-
+#define WINDOW_WIDTH 1240
+#define WINDOW_HEIGHT 800
 #include "cprocessing.h"
+#include "Snake/Snake.h"
 
 // use CP_Engine_SetNextGameState to specify this function as the initialization function
 // this function will be called once at the beginning of the program
@@ -40,7 +42,8 @@ void game_exit(void)
 // CP_Engine_Run() is the core function that starts the simulation
 int main(void)
 {
-	CP_Engine_SetNextGameState(game_init, game_update, game_exit);
+	CP_System_SetWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+	CP_Engine_SetNextGameState(snake_init, snake_update, snake_exit);
 	CP_Engine_Run();
 	return 0;
 }
