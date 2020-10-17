@@ -16,6 +16,7 @@ CP_Image appleImage;
 
 void TestScene_Init(void);
 void TestScene_Update(void);
+void TestScene_Render(void);
 void TestScene_Exit(void);
 
 
