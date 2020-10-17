@@ -17,7 +17,7 @@ struct SnakeBody
 	int listSize;
 	int snakeLength;
 };
-void AddNode(SnakeBody sb, SnakeNode sn);
+void AddNode(struct SnakeBody sb,struct SnakeNode sn);
 
 
 #endif // !SNAKEBODY_H

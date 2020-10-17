@@ -2,7 +2,7 @@
 #include "../CProcessing/inc/cprocessing.h"
 
 
-CP_Color bg;
+
 void snake_init()
 {
 	bg = CP_Color_Create(0, 0, 0, 255);

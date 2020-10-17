@@ -1,6 +1,6 @@
 #include "SnakeBody.h"
 
-void AddNode(SnakeBody sb, SnakeNode)
+void AddNode(struct SnakeBody sb,struct SnakeNode sn)
 {
 
 }

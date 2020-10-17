@@ -1,6 +1,9 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
+CP_Color bg;
+
+
 
 
 void snake_init(void);
