@@ -39,7 +39,7 @@ void TestScene_Update(void)
 
 	if (CP_Input_KeyDown(KEY_L))
 	{
-		CP_Engine_SetNextGameState(snake_init, snake_update, snake_exit);
+		CP_Engine_SetNextGameState(Snake_init, Snake_update, Snake_exit);
 	}
 
 
