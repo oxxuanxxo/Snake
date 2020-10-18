@@ -19,23 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FoodCollision.c" />
-    <ClCompile Include="FoodSpawn.c" />
-    <ClCompile Include="GameOverScreen.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Snake\Snake.c" />
     <ClCompile Include="Snake\SnakeBody.c" />
     <ClCompile Include="Source\Camera.c" />
+    <ClCompile Include="Source\Collider\BoxCollider.c" />
     <ClCompile Include="Source\Scenes\DemoScene.c" />
     <ClCompile Include="Source\Scenes\TestScene.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FoodCollision.h" />
-    <ClInclude Include="FoodSpawn.h" />
-    <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="Snake\Snake.h" />
     <ClInclude Include="Snake\SnakeBody.h" />
     <ClInclude Include="Source\Camera.h" />
+    <ClInclude Include="Source\Collider\BoxCollider.h" />
     <ClInclude Include="Source\Scenes\DemoScene.h" />
     <ClInclude Include="Source\Scenes\TestScene.h" />
   </ItemGroup>

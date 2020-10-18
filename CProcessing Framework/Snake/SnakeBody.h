@@ -5,6 +5,10 @@
 #include "../CProcessing/inc/cprocessing.h"
 #include "../Source/Collider/BoxCollider.h"
 
+
+//snake head
+
+
 struct SnakeNode
 {
 	CP_Vector position;
@@ -28,6 +32,7 @@ struct SnakeBody
 
 	CP_Vector dir;
 
+	CP_Image snakehead;
 	struct SnakeNode* head;//head of the snake
 	struct SnakeNode* last;//most recently created node
 
@@ -47,4 +52,6 @@ void SnakeBodyUpdate(struct SnakeBody* sb, float dt);
 
 //handles collision for the whole body
 int SnakeBodyCollision(struct SnakeBody* sb);
+
+
 #endif // !SNAKEBODY_H

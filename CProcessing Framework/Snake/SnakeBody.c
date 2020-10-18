@@ -16,6 +16,8 @@ struct SnakeNode CreateSnakeNode(float x, float y, float width, float height)
 struct SnakeBody CreateSnakeBody(float x,float y,float w,float h,float tickTime)
 {
 	struct SnakeBody sb;
+	//read snakehead data(todo change to a better way)
+	sb.snakehead = CP_Image_Load("Images/Snake.png");
 	sb.immunity = 5;//ticks of immunity
 	sb.list = (struct SnakeNode*)calloc(DEFAULTSNAKELENGTH , sizeof(struct SnakeNode));
 	sb.listSize = DEFAULTSNAKELENGTH;
@@ -75,7 +77,8 @@ void SnakeBodyResizeList(struct SnakeBody* sb)
 void SnakeBodyRender(struct SnakeBody* sb)
 {
 	//draw head
-	CP_Graphics_DrawRect(sb->head->position.x, sb->head->position.y,sb->bodyWidth,sb->bodyHeight);
+	CP_Image_Draw(sb->snakehead, sb->head->position.x + sb->bodyWidth*0.5f, sb->head->position.y + sb->bodyHeight*0.5f
+				  , sb->bodyWidth, sb->bodyHeight, 255);
 	//draw body
 	for (unsigned int i = 1; i < sb->length; ++i)
 		CP_Graphics_DrawRect(sb->list[i].position.x, sb->list[i].position.y, sb->bodyWidth, sb->bodyHeight);
@@ -112,12 +115,19 @@ void SnakeBodyUpdate(struct SnakeBody* sb, float dt)
 }
 int SnakeBodyCollision(struct SnakeBody* sb)
 {
-	if (sb->immunity)
+	if (sb->immunity > 0)
 		return 0;
-	for (unsigned int i = 3; i < sb->length; ++i)
+	for (unsigned int i = 2; i < sb->length; ++i)//ignore the first 3 nodes it is impossible to touch it
 	{
-		if (BoxColliderCheckCollision(sb->head->bc,sb->list[i].bc))
+		//if (BoxColliderCheckCollision(sb->head->bc,sb->list[i].bc))
+		//	return 1;
+		//simple distance check as box collision will have problems with floating point precision
+		float len = CP_Vector_Length(CP_Vector_Subtract(sb->head->position, sb->list[i].position));
+		if (len < 1.0f)
+		{
+			len = len;
 			return 1;
+		}
 	}
 	return 0;
 }
