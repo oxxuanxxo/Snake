@@ -1,7 +1,0 @@
-#ifndef FOODCOLLISION_H
-#define FOODCOLLISION_H
-
-//code
-
-
-#endif FOODCOLLISION_H
