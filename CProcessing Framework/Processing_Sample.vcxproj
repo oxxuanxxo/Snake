@@ -24,13 +24,19 @@
     <ClCompile Include="Snake\SnakeBody.c" />
     <ClCompile Include="Source\Camera.c" />
     <ClCompile Include="Source\Collider\BoxCollider.c" />
+    <ClCompile Include="source\FoodCollision.c" />
+    <ClCompile Include="source\FoodSpawn.c" />
+    <ClCompile Include="source\GameOver.c" />
     <ClCompile Include="Source\Scenes\DemoScene.c" />
     <ClCompile Include="Source\Scenes\TestScene.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\FoodCollision.h" />
+    <ClInclude Include="header\FoodSpawn.h" />
+    <ClInclude Include="header\GameOver.h" />
     <ClInclude Include="Snake\Snake.h" />
     <ClInclude Include="Snake\SnakeBody.h" />
-    <ClInclude Include="Source\Camera.h" />
+    <ClInclude Include="source\Camera.h" />
     <ClInclude Include="Source\Collider\BoxCollider.h" />
     <ClInclude Include="Source\Scenes\DemoScene.h" />
     <ClInclude Include="Source\Scenes\TestScene.h" />
