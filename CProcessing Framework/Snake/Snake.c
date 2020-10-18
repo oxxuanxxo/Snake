@@ -1,5 +1,5 @@
 #include "Snake.h"
-
+#include "../Source/Scenes/DemoScene.h"
 
 
 void Snake_init()
@@ -20,12 +20,15 @@ void Snake_update()
 	Snake_inputs(dt);
 	//camera update
 	Camera_Update(&cam);
-
 	Snake_render();
 }
 void Snake_gameupdate(float dt)
 {
 	SnakeBodyUpdate(&snakeBody,dt);
+	if (SnakeBodyCollision(&snakeBody))
+	{
+		CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);
+	}
 }
 void Snake_inputs(float dt)
 {
