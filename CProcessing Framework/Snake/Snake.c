@@ -65,7 +65,6 @@ void Snake_inputs(float dt)
 void Snake_render(void)
 {
 	CP_Settings_Background(bg);//set bg to black and works as a clear buffer
-	CP_Graphics_DrawRect(100.0f, 100.0f, 50.0f, 50.0f);
 	SnakeBodyRender(&snakeBody);
 	FoodCollision_render();
 }
