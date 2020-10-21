@@ -1,5 +1,6 @@
 #include "Snake.h"
 #include "../Source/Scenes/DemoScene.h"
+#include "../header/Food.h"
 
 
 void Snake_init()
@@ -12,6 +13,7 @@ void Snake_init()
 	SnakeBodyAddNode(&snakeBody);
 	SnakeBodyAddNode(&snakeBody);
 	SnakeBodyAddNode(&snakeBody);
+	FoodCollision_init();
 }
 void Snake_update()
 {
@@ -21,6 +23,7 @@ void Snake_update()
 	//camera update
 	Camera_Update(&cam);
 	Snake_render();
+
 }
 void Snake_gameupdate(float dt)
 {
@@ -29,6 +32,7 @@ void Snake_gameupdate(float dt)
 	{
 		CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);
 	}
+	FoodCollision_update(&snakeBody);
 }
 void Snake_inputs(float dt)
 {
@@ -63,6 +67,7 @@ void Snake_render(void)
 	CP_Settings_Background(bg);//set bg to black and works as a clear buffer
 	CP_Graphics_DrawRect(100.0f, 100.0f, 50.0f, 50.0f);
 	SnakeBodyRender(&snakeBody);
+	FoodCollision_render();
 }
 
 

@@ -80,8 +80,12 @@ void SnakeBodyRender(struct SnakeBody* sb)
 	CP_Image_DrawAdvanced(sb->snakehead, sb->head->position.x + sb->bodyWidth*0.5f, sb->head->position.y + sb->bodyHeight*0.5f
 				  , sb->bodyWidth, sb->bodyHeight, 255,angle);
 	//draw body
+	CP_Settings_Fill(CP_Color_Create(0, 100, 0, 255));
 	for (unsigned int i = 1; i < sb->length; ++i)
+	{
 		CP_Graphics_DrawRect(sb->list[i].position.x, sb->list[i].position.y, sb->bodyWidth, sb->bodyHeight);
+
+	}
 }
 
 void SnakeBodyUpdate(struct SnakeBody* sb, float dt)

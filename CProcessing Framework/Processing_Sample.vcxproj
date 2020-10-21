@@ -20,16 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="MainMenu.c" />
     <ClCompile Include="Snake\Snake.c" />
     <ClCompile Include="Snake\SnakeBody.c" />
     <ClCompile Include="Source\Camera.c" />
     <ClCompile Include="Source\Collider\BoxCollider.c" />
+    <ClCompile Include="source\Food.c" />
     <ClCompile Include="source\GameOver.c" />
     <ClCompile Include="Source\Scenes\DemoScene.c" />
     <ClCompile Include="Source\Scenes\TestScene.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Food.h" />
     <ClInclude Include="header\GameOver.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Snake\Snake.h" />
     <ClInclude Include="Snake\SnakeBody.h" />
     <ClInclude Include="source\Camera.h" />
