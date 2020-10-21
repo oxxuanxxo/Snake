@@ -32,6 +32,7 @@
   <ItemGroup>
     <ClInclude Include="header\Food.h" />
     <ClInclude Include="header\GameOver.h" />
+    <ClInclude Include="header\GlobalDef.h" />
     <ClInclude Include="Snake\Snake.h" />
     <ClInclude Include="Snake\SnakeBody.h" />
     <ClInclude Include="source\Camera.h" />
