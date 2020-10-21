@@ -41,19 +41,19 @@ void Snake_inputs(float dt)
 		SnakeBodyAddNode(&snakeBody);
 	}
 
-	if (CP_Input_KeyDown(KEY_W))
+	if (CP_Input_KeyDown(KEY_W) && snakeBody.dir.y != -1.0f)
 	{
 		snakeBody.dir = CP_Vector_Set(0.f, 1.f);
 	}
-	else if (CP_Input_KeyDown(KEY_S))
+	else if (CP_Input_KeyDown(KEY_S) && snakeBody.dir.y != -1.0f)
 	{
 		snakeBody.dir = CP_Vector_Set(0.f, -1.f);
 	}
-	if (CP_Input_KeyDown(KEY_A))
+	if (CP_Input_KeyDown(KEY_A) && snakeBody.dir.x != 1.0f)
 	{
 		snakeBody.dir = CP_Vector_Set(-1.f, 0.f);
 	}
-	else if (CP_Input_KeyDown(KEY_D))
+	else if (CP_Input_KeyDown(KEY_D) && snakeBody.dir.x != -1.0f)
 	{
 		snakeBody.dir = CP_Vector_Set(1.f, 0.f);
 	}

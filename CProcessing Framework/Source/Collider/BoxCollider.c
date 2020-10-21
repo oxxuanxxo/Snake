@@ -17,8 +17,8 @@ int BoxColliderCheckCollision(struct BoxCollider a, struct BoxCollider b)
 	ah = a.height * 0.5f;
 	bw = b.width * 0.5f;
 	bh = b.height * 0.5f;
-	return ((a.position->x ) > (b.position->x - bw - aw)) &&
-		((b.position->x) > (a.position->x - aw - bw)) &&
-		((a.position->y) > (b.position->y - bh - ah)) &&
-		((b.position->y) > (a.position->y - ah - bh));
+	return ((a.position->x ) >= (b.position->x - bw - aw)) &&
+		((b.position->x) >= (a.position->x - aw - bw)) &&
+		((a.position->y) >= (b.position->y - bh - ah)) &&
+		((b.position->y) >= (a.position->y - ah - bh));
 }
