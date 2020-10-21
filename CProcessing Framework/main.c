@@ -11,8 +11,7 @@
 //
 // Copyright © 2020 DigiPen, All rights reserved.
 //---------------------------------------------------------
-#define WINDOW_WIDTH 1240
-#define WINDOW_HEIGHT 800
+#include "header/GlobalDef.h"
 #include "cprocessing.h"
 #include "Snake/Snake.h"
 
