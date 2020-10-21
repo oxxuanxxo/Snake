@@ -14,7 +14,9 @@
 #define WINDOW_WIDTH 1240
 #define WINDOW_HEIGHT 800
 #include "cprocessing.h"
+#include "MainMenu.h"
 #include "Snake/Snake.h"
+
 
 // use CP_Engine_SetNextGameState to specify this function as the initialization function
 // this function will be called once at the beginning of the program
@@ -43,7 +45,8 @@ void game_exit(void)
 int main(void)
 {
 	CP_System_SetWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-	CP_Engine_SetNextGameState(Snake_init, Snake_update, Snake_exit);
+	CP_Engine_SetNextGameState(MainMenu_Init, MainMenu_Update, MainMenu_Exit);
+	//CP_Engine_SetNextGameState(Snake_init, Snake_update, Snake_exit);
 	//CP_Engine_SetNextGameState(TestScene_Init,TestScene_Update,TestScene_Exit);
 	//CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);
 	CP_Engine_Run();
