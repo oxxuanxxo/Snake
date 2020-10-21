@@ -8,7 +8,6 @@ void FoodCollision_init(void)
 	//set initial coordinates for food
 	foodPos = CP_Vector_Set(100.0f, 100.0f);
 	foodImg = CP_Image_Load("Images/Apple.png");
-	
 }
 
 void foodSpawn(struct SnakeBody* sb)
@@ -16,12 +15,33 @@ void foodSpawn(struct SnakeBody* sb)
 	int ScreenWidth, ScreenHeight;
 	ScreenWidth = (int)WINDOW_WIDTH / (int)(sb->bodyWidth); //1200 / 50 = 24
 	ScreenHeight = (int)WINDOW_HEIGHT / (int)(sb->bodyHeight); //800 / 50 = 16
-
-	foodPos.x = (float)((int)CP_Random_GetInt() % ScreenWidth - (ScreenWidth / 2)) * (sb->bodyWidth);
+	//int checkMoreX, checkMoreY;
+		
+	foodPos.x = (float)((int)((CP_Random_GetInt() % ScreenWidth) - (ScreenWidth / 2))) * (sb->bodyWidth);
+	foodPos.y = (float)((int)((CP_Random_GetInt() % ScreenHeight) - (ScreenHeight / 2))) * (sb->bodyHeight);
+	
+	/*if (foodPos.x > WINDOW_WIDTH)
+	{
+		checkMoreX = 1;
+		while(checkMoreX == 1)
+		{
+			foodPos.x = (float)((int)CP_Random_GetInt() % ScreenWidth - (ScreenWidth / 2)) * (sb->bodyWidth);
+		}
+	}
+	
+	if (foodPos.y > WINDOW_HEIGHT)
+	{
+		checkMoreY = 1;
+		if (checkMoreY == 1)
+		{
+			foodPos.y = (float)((int)CP_Random_GetInt() % ScreenHeight - (ScreenHeight / 2)) * (sb->bodyHeight);
+		}
+	}
+	*/
 	//foodPos.x = (float)((int)CP_Random_GetFloat() %24 - 12)*(sb -> bodyWidth); 
 	//1200/50 = 24;  %24 is to get grid coords; -12 is to get pos and neg
-	foodPos.y = (float)((int)CP_Random_GetInt() % ScreenHeight - (ScreenHeight / 2)) * (sb->bodyHeight);
-
+	//foodPos.y = (float)((int)CP_Random_GetInt() % ScreenHeight - (ScreenHeight / 2)) * (sb->bodyHeight);
+	//foodPos.x = (float)((int)CP_Random_GetInt() % ScreenWidth - (ScreenWidth / 2)) * (sb->bodyWidth);
 }
 
 void FoodCollision_update(struct SnakeBody* sb)
