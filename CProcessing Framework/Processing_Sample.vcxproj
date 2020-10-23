@@ -27,12 +27,14 @@
     <ClCompile Include="Source\Collider\BoxCollider.c" />
     <ClCompile Include="source\Food.c" />
     <ClCompile Include="source\GameOver.c" />
+    <ClCompile Include="Source\GlobalDef.c" />
     <ClCompile Include="Source\Scenes\DemoScene.c" />
     <ClCompile Include="Source\Scenes\TestScene.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Food.h" />
     <ClInclude Include="header\GameOver.h" />
+    <ClInclude Include="header\GlobalDef.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Snake\Snake.h" />
     <ClInclude Include="Snake\SnakeBody.h" />

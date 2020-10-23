@@ -36,6 +36,7 @@ void FoodCollision_update(struct SnakeBody* sb)
 		if (a <= 50)
 		{
 			foodCollide = 1;
+			UpdateScore(1);
 			SnakeBodyAddNode(sb);
 		}
 	}

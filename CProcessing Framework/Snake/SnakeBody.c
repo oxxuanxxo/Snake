@@ -16,11 +16,12 @@ struct SnakeNode CreateSnakeNode(float x, float y, float width, float height)
 struct SnakeBody CreateSnakeBody(float x,float y,float w,float h,float tickTime)
 {
 	struct SnakeBody sb;
-	//read snakehead data(todo change to a better way)
-	sb.snakehead = CP_Image_Load("Images/Snake.png");
+
 	sb.immunity = 5;//ticks of immunity
+
 	sb.list = (struct SnakeNode*)calloc(DEFAULTSNAKELENGTH , sizeof(struct SnakeNode));
 	sb.listSize = DEFAULTSNAKELENGTH;
+
 	sb.length = 0;
 	sb.bodyWidth = w;
 	sb.bodyHeight = h;
@@ -54,6 +55,7 @@ void SnakeBodyAddNode(struct SnakeBody* sb)
 	sb->list[sb->length].bc.position = &sb->list[sb->length].position;
 	sb->last = &sb->list[sb->length];
 	++sb->length;
+	sb->updateTime *= 0.98f;//game gets 2% faster everytime the snake length increase
 }
 void SnakeBodyResizeList(struct SnakeBody* sb)
 {
@@ -76,9 +78,8 @@ void SnakeBodyResizeList(struct SnakeBody* sb)
 void SnakeBodyRender(struct SnakeBody* sb)
 {
 	//draw head
-	float angle = CP_Vector_Angle(sb->dir, CP_Vector_Set(1.f, 0.f));//find angle between e1 axis and dir
-	CP_Image_DrawAdvanced(sb->snakehead, sb->head->position.x + sb->bodyWidth*0.5f, sb->head->position.y + sb->bodyHeight*0.5f
-				  , sb->bodyWidth, sb->bodyHeight, 255,angle);
+	CP_Settings_Fill(CP_Color_Create(100, 0, 0, 255));
+	CP_Graphics_DrawRect(sb->head->position.x, sb->head->position.y, sb->bodyWidth, sb->bodyHeight);
 	//draw body
 	CP_Settings_Fill(CP_Color_Create(0, 100, 0, 255));
 	for (unsigned int i = 1; i < sb->length; ++i)
@@ -123,12 +124,6 @@ int SnakeBodyCollision(struct SnakeBody* sb)
 		return 0;
 	for (unsigned int i = 2; i < sb->length; ++i)//ignore the first 3 nodes it is impossible to touch it
 	{
-		//if (BoxColliderCheckCollision(sb->head->bc,sb->list[i].bc))
-		//	return 1;
-		//find dir
-		float x = sb->head->bc.position->x;
-		x;
-
 		CP_Vector normal = CP_Vector_Normalize(CP_Vector_Subtract(sb->list[i].position, sb->head->position));
 		float len = CP_Vector_Length(CP_Vector_Subtract(normal,sb->dir));
 		if (len < 0.1f)
@@ -136,13 +131,15 @@ int SnakeBodyCollision(struct SnakeBody* sb)
 			if (BoxColliderCheckCollision(sb->head->bc,sb->list[i].bc))
 				return 1;
 		}
-		//simple distance check as box collision will have problems with floating point precision
-		//float len = CP_Vector_Length(CP_Vector_Subtract(sb->head->position, sb->list[i].position));
-		//if (len < 1.0f)
-		//{
-		//	len = len;
-		//	return 1;
-		//}
 	}
 	return 0;
+}
+void SnakeSetDirection(struct SnakeBody* sb,CP_Vector direction)
+{
+	CP_Vector v = CP_Vector_Subtract(sb->list[1].position ,sb->head->position);
+	v = CP_Vector_Normalize(v);
+	if (direction.x == v.x && direction.y == v.y)
+		return;
+	else
+		sb->dir = direction;
 }

@@ -1,10 +1,10 @@
 #pragma once
 #ifndef SNAKEBODY_H
 #define SNAKEBODY_H
-#define DEFAULTSNAKELENGTH 4
+
 #include "../CProcessing/inc/cprocessing.h"
 #include "../Source/Collider/BoxCollider.h"
-
+#include "../header/GlobalDef.h"
 
 //snake head
 
@@ -32,7 +32,6 @@ struct SnakeBody
 
 	CP_Vector dir;
 
-	CP_Image snakehead;
 	struct SnakeNode* head;//head of the snake
 	struct SnakeNode* last;//most recently created node
 
@@ -52,6 +51,6 @@ void SnakeBodyUpdate(struct SnakeBody* sb, float dt);
 
 //handles collision for the whole body
 int SnakeBodyCollision(struct SnakeBody* sb);
-
+void SnakeSetDirection(struct SnakeBody* sb,CP_Vector direction);
 
 #endif // !SNAKEBODY_H
