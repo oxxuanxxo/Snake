@@ -2,6 +2,7 @@
 #include "../Source/Scenes/DemoScene.h"
 #include "../header/Food.h"
 
+
 void Snake_init()
 {
 	Camera_Init(&cam);
@@ -36,6 +37,7 @@ void Snake_gameupdate(float dt)
 	SnakeBodyUpdate(&snakeBody,dt);
 	if (SnakeBodyCollision(&snakeBody))
 	{
+		//CP_Engine_SetNextGameState(GameOver_init(), GameOver_update(), GameOver_exit());
 		CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);
 	}
 	FoodCollision_update(&snakeBody);

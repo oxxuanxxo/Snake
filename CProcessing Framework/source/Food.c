@@ -15,7 +15,6 @@ void foodSpawn(struct SnakeBody* sb)
 	int ScreenWidth, ScreenHeight;
 	ScreenWidth = (int)WINDOW_WIDTH / (int)(sb->bodyWidth); //1200 / 50 = 24
 	ScreenHeight = (int)WINDOW_HEIGHT / (int)(sb->bodyHeight); //800 / 50 = 16
-	//int checkMoreX, checkMoreY;
 		
 	foodPos.x = (float)((int)((CP_Random_GetInt() % ScreenWidth) - (ScreenWidth / 2))) * (sb->bodyWidth);
 	foodPos.y = (float)((int)((CP_Random_GetInt() % ScreenHeight) - (ScreenHeight / 2))) * (sb->bodyHeight);
