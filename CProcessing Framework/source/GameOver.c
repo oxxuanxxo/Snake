@@ -13,7 +13,7 @@ void GameOver_init()
 	gameOverHeight = WINDOW_HEIGHT / 4;
 	CP_Image_Draw(gameOver, gameOverWidth, gameOverHeight, 150, 150, 255);
 
-	//draw restart button
+	//restart button
 	struct myButton restartBut = {
 		restartBut.x = WINDOW_WIDTH / 2,
 		restartBut.y = (WINDOW_HEIGHT / 5) * 3,
@@ -22,7 +22,7 @@ void GameOver_init()
 		restartBut.text = "Restart"
 	};
 
-	//draw menu button
+	//menu button
 	struct myButton menuBut = {
 		menuBut.x = WINDOW_WIDTH / 2,
 		menuBut.y = (WINDOW_HEIGHT / 5) * 4,
@@ -31,10 +31,12 @@ void GameOver_init()
 		restartBut.text = "Menu"
 	};
 
+	//draw restart button
 	CP_Graphics_DrawRect(restartBut.x - restartBut.size_x / 2, restartBut.y - restartBut.size_y / 2, restartBut.size_x, restartBut.size_y);
 	CP_Settings_Fill(CP_Color_Create(0,0,0,255));
 	CP_Font_DrawText(restartBut.text, restartBut.x, restartBut.y);
 
+	//draw menu button
 	CP_Graphics_DrawRect(menuBut.x - menuBut.size_x / 2, menuBut.y - menuBut.size_y / 2, menuBut.size_x, menuBut.size_y);
 	CP_Settings_Fill(CP_Color_Create(0, 0, 0, 255));
 	CP_Font_DrawText(menuBut.text, menuBut.x, menuBut.y);
