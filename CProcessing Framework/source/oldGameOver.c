@@ -14,22 +14,22 @@ void GameOver_init()
 	CP_Image_Draw(gameOver, gameOverWidth, gameOverHeight, 150, 150, 255);
 
 	//restart button
-
-	restartBut.x = WINDOW_WIDTH / 2;
-		restartBut.y = (WINDOW_HEIGHT / 5) * 3;
-		restartBut.size_x = 100;
-		restartBut.size_y = 100;
-		restartBut.text = "Restart";
-
+	struct myButton restartBut = {
+		restartBut.x = WINDOW_WIDTH / 2,
+		restartBut.y = (WINDOW_HEIGHT / 5) * 3,
+		restartBut.size_x = 100,
+		restartBut.size_y = 100,
+		restartBut.text = "Restart"
+	};
 
 	//menu button
-
-		menuBut.x = WINDOW_WIDTH / 2;
-		menuBut.y = (WINDOW_HEIGHT / 5) * 4;
-		restartBut.size_x = 100;
-		restartBut.size_y = 100;
-		restartBut.text = "Menu";
-
+	struct myButton menuBut = {
+		menuBut.x = WINDOW_WIDTH / 2,
+		menuBut.y = (WINDOW_HEIGHT / 5) * 4,
+		restartBut.size_x = 100,
+		restartBut.size_y = 100,
+		restartBut.text = "Menu"
+	};
 
 	//draw restart button
 	CP_Graphics_DrawRect(restartBut.x - restartBut.size_x / 2, restartBut.y - restartBut.size_y / 2, restartBut.size_x, restartBut.size_y);
