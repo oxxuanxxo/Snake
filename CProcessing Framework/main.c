@@ -44,8 +44,7 @@ void game_exit(void)
 int main(void)
 {
 	CP_System_SetWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-	CP_Engine_SetNextGameState(MainMenu_Init, MainMenu_Update, MainMenu_Exit);
-	CP_Engine_SetNextGameState(WallCollision_Init, WallCollision_Update, WallCollision_Exit);
+	//CP_Engine_SetNextGameState(MainMenu_Init, MainMenu_Update, MainMenu_Exit);
 	//CP_Engine_SetNextGameState(Snake_init, Snake_update, Snake_exit);
 	//CP_Engine_SetNextGameState(TestScene_Init,TestScene_Update,TestScene_Exit);;
 	//CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);

@@ -1,16 +1,11 @@
 #include "cprocessing.h"
 #include "WallCollision.h"
-#include "../header/GameOver.h"
-#include "../Snake/SnakeBody.h"
-#include "../header/GlobalDef.h"
-
+#include "header/GameOver.h"
+#include "Snake/SnakeBody.h"
 
 
 void WallCollision_Init(void)
 {
-
-	CP_Settings_Background(CP_Color_Create(0, 0, 0, 255));
-
 	for (x = 0; x < grid_WIDTH; x++) //create wall top and bottom
 	{
 		grid[x][0] = WALL;
@@ -25,13 +20,13 @@ void WallCollision_Init(void)
 }
 
 
-void WallCollision_Update(void)
+void WallCollision_Update(struct SnakeBody* sb)
 {
 	for (x = 0; x < grid_WIDTH; x++)
 	{
 		for (y = 0; y < grid_HEIGHT; y++)
 		{
-			if (grid[sb->head][sb->head] == WALL)
+			if (grid[x][y] == WALL)
 			{
 				CP_Graphics_DrawRect((float)x * 20, (float)y * 20, (float)20, (float)20);
 				CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
@@ -39,13 +34,13 @@ void WallCollision_Update(void)
 		}
 	}
 
-	if (grid[sb->head][sb->head]==WALL)
+	if (sb->head->position.x==WALL && sb->head->position.y==WALL) //snake head collide with wall, game over
 	{
 		CP_Engine_SetNextGameState(GameOver_init, GameOver_update, GameOver_exit);
 	}
 }
 
-void WallCollision_Exit()
+void WallCollision_Exit(void)
 {
 
 }
