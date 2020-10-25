@@ -12,7 +12,9 @@ struct Score
 };
 
 int LoadScoreFromFile(struct Score* ,char* filePath);
+void WriteScoreToFile(struct Score* scoreArr,int size ,char* filePath);
 void RenderScore(struct Score score, float y);
+void SortScoreArr(struct Score scoreArr[], int size);
 
 
 #endif

@@ -32,6 +32,24 @@ int LoadScoreFromFile(struct Score* score, char* filePath)
 	return 0;
 }
 
+void WriteScoreToFile(struct Score* scoreArr, int size, char* filePath)
+{
+	FILE* file;
+	char buffer[10];
+	fopen_s(&file, filePath, "w");
+
+	if (file)
+	{
+		for (int i = 0; i < size; ++i)
+		{
+			sprintf_s(buffer, 10, "%s,%d\n", scoreArr[i].name, scoreArr[i].score);
+			fprintf_s(file, "%s", buffer);
+		}
+
+		
+		fclose(file);
+	}
+}
 
 void RenderScore(struct Score score, float y)
 {
@@ -39,4 +57,23 @@ void RenderScore(struct Score score, float y)
 	char scoreString[6];
 	_itoa_s(score.score, scoreString, 6, 10);
 	CP_Font_DrawText(scoreString, CP_System_GetDisplayWidth() * 0.42f, y);
+}
+
+void SortScoreArr(struct Score scoreArr[],int size)
+{
+	struct Score temp;
+	for (int i = size - 1; i >= 1; --i)
+	{
+		if (scoreArr[i].score > scoreArr[i - 1].score)
+		{
+			strcpy_s(temp.name, 4, scoreArr[i].name);
+			temp.score = scoreArr[i].score;
+
+			strcpy_s(scoreArr[i].name, 4, scoreArr[i - 1].name);
+			scoreArr[i].score = scoreArr[i - 1].score;
+
+			strcpy_s(scoreArr[i - 1].name,4,temp.name);
+			scoreArr[i - 1].score = temp.score;
+		}
+	}
 }

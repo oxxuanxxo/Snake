@@ -22,7 +22,7 @@ void HighScore_Init(void)
 	windowHeight = CP_System_GetWindowHeight();
 
 	numScore = LoadScoreFromFile(scoreArr, "./Assets/Highscore.csv");
-	//SortScoreArr(scoreArr, numScore);
+	SortScoreArr(scoreArr, numScore);
 
 }
 
@@ -81,8 +81,8 @@ void HighScore_Update(void)
 					scoreArr[numScore].name[i] = name[i];
 				}
 				scoreArr[numScore].score = currScore;
-				//SortScoreArr(scoreArr, ++numScore);
-				//WriteScoreToFile(scoreArr, numScore, "./Assets/Highscore.csv");
+				SortScoreArr(scoreArr, ++numScore);
+				WriteScoreToFile(scoreArr, numScore, "./Assets/Highscore.csv");
 			}
 			else
 			{
@@ -104,8 +104,8 @@ void HighScore_Update(void)
 						scoreArr[9].name[i] = name[i];
 					}
 					scoreArr[9].score = currScore;
-					//SortScoreArr(scoreArr, ++numScore);
-					//WriteScoreToFile(scoreArr, numScore,"./Assets/Highscore.csv");
+					SortScoreArr(scoreArr, ++numScore);
+					WriteScoreToFile(scoreArr, numScore,"./Assets/Highscore.csv");
 				}
 
 			}
