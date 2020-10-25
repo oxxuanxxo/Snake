@@ -3,88 +3,82 @@
 #include "Snake/Snake.h"
 
 
-
-
-void Play_OnClick(void)
-{
-	CP_Engine_SetNextGameState(Snake_init, Snake_update, Snake_exit);
-}
-
-
 void MainMenu_Init()
 {
+	CP_Settings_Background(CP_Color_Create(128, 128, 255, 255));
+	
+	//Create play button
 	CP_Settings_TextAlignment(CP_TEXT_ALIGN_H_CENTER, CP_TEXT_ALIGN_V_MIDDLE);
 	struct Button p = {
 		.text = "Play",
-		.x = (float)CP_System_GetWindowWidth() / 2,
-		.y = (float)CP_System_GetWindowHeight() / 3,
+		.x = WINDOW_WIDTH / 2,
+		.y = WINDOW_HEIGHT / 2.5f,
 		.width = 200,
 		.height = 100,
-		.colorFont = CP_Color_Create(0, 0, 0, 255),
-		.colorDefault = CP_Color_Create(255, 255, 255, 255),
-		.colorHover = CP_Color_Create(255, 64, 64, 255),
-		.onClick = &Play_OnClick,
+		.FontC = CP_Color_Create(0, 0, 0, 255),
+		.DefaultC = CP_Color_Create(255, 255, 255, 255),
+		.HoverC = CP_Color_Create(255, 255, 0, 255),
 	};
 	play = p;
 
+	//create quite button
 	struct Button q = {
 		.text = "Quit",
-		.x = (float)CP_System_GetWindowWidth() / 2,
-		.y = (float)CP_System_GetWindowHeight() * 2 / 3,
+		.x = WINDOW_WIDTH / 2,
+		.y = WINDOW_HEIGHT * 2 / 3,
 		.width = 200,
 		.height = 100,
-		.colorFont = CP_Color_Create(0, 0, 0, 255),
-		.colorDefault = CP_Color_Create(255, 255, 255, 255),
-		.colorHover = CP_Color_Create(255, 64, 64, 255),
-		.onClick = &Play_OnClick,
+		.FontC = CP_Color_Create(0, 0, 0, 255),
+		.DefaultC = CP_Color_Create(255, 255, 255, 255),
+		.HoverC = CP_Color_Create(255, 255, 0, 255),
 	};
 	quit = q;
-
 }
 
 void MainMenu_Update()
 {
 	float mouseX = CP_Input_GetMouseX(), mouseY = CP_Input_GetMouseY();
 
-	CP_Settings_Background(CP_Color_Create(128, 128, 128, 255));
-
-	if (play.x - play.width / 2 < mouseX && mouseX < play.x + play.width / 2 && play.y - play.height / 2 < mouseY && mouseY < play.y + play.height / 2)
+	
+	if ((mouseX >= play.x - play.width / 2) &&
+		(mouseX <= play.x + play.width / 2) &&
+		(mouseY >= play.y - play.height / 2) &&
+		(mouseY <= play.y + play.height / 2))
 	{
-		CP_Settings_Fill(play.colorHover);
-		if (CP_Input_MouseClicked())
+		CP_Settings_Fill(play.HoverC); //mouse over to the button, colour change
+		if (CP_Input_MouseClicked())   //click the play button, direct to snake game
 		{
-			play.onClick();
+			CP_Engine_SetNextGameState(Snake_init, Snake_update, Snake_exit);
 		}
 	}
-
-	else
-	{
-		CP_Settings_Fill(play.colorDefault);
-	}
+	//draw play button
 	CP_Graphics_DrawRect(play.x - play.width / 2, play.y - play.height / 2, play.width, play.height);
-	CP_Settings_Fill(play.colorFont);
+	CP_Settings_Fill(play.FontC);
 	CP_Font_DrawText(play.text, play.x, play.y);
+	CP_Settings_Fill(play.DefaultC);
 	
-
-	if (quit.x - quit.width / 2 < mouseX && mouseX < quit.x + quit.width / 2 && quit.y - quit.height / 2 < mouseY && mouseY < quit.y + quit.height / 2)
+	
+	if ((mouseX >= quit.x - quit.width / 2) &&
+		(mouseX <= quit.x + quit.width / 2) && 
+		(mouseY >= quit.y - quit.height / 2) &&
+		(mouseY <= quit.y + quit.height / 2))
 	{
-		CP_Settings_Fill(quit.colorHover);
-		if (CP_Input_MouseClicked())
+		CP_Settings_Fill(quit.HoverC); //mouse over to the button, colour change
+		if (CP_Input_MouseClicked()) //click the play button, exit the game
 		{
 			CP_Engine_Terminate();
 		}
 	}
-	else
-	{
-		CP_Settings_Fill(quit.colorDefault);
-	}
+
+	//draw quite button
 	CP_Graphics_DrawRect(quit.x - quit.width / 2, quit.y - quit.height / 2, quit.width, quit.height);
-	CP_Settings_Fill(quit.colorFont);
+	CP_Settings_Fill(quit.FontC);
 	CP_Font_DrawText(quit.text, quit.x, quit.y);
+	CP_Settings_Fill(quit.DefaultC);
 }
-	 
-	 
-	 void MainMenu_Exit()
+
+void MainMenu_Exit()
 {
 
 }
+	 

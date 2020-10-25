@@ -30,6 +30,7 @@
     <ClCompile Include="Source\GlobalDef.c" />
     <ClCompile Include="Source\Scenes\DemoScene.c" />
     <ClCompile Include="Source\Scenes\TestScene.c" />
+    <ClCompile Include="WallCollision.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header\Food.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="Source\Collider\BoxCollider.h" />
     <ClInclude Include="Source\Scenes\DemoScene.h" />
     <ClInclude Include="Source\Scenes\TestScene.h" />
+    <ClInclude Include="WallCollision.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
