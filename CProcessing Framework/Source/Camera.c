@@ -1,7 +1,20 @@
+/*!
+@file Camera.c
+@author Daniel Chua (yeechendaniel.chua)
+@date 15/10/20
+@brief This file contains functions that deal with the Camera.
+*//*________________________________________________________________________
+_*/
+
 #include "Camera.h"
 
 
-
+/*!
+@brief Updates the projection matrix of the camera
+@param camera - pointer that points to the camera to update.
+@return void - none
+*//*________________________________________________________________________
+_*/
 void Camera_UpdateProjection(struct Camera* camera)
 {
 	//this matrix handles the conversion from camera space to screen space.
@@ -11,6 +24,12 @@ void Camera_UpdateProjection(struct Camera* camera)
 	camera->projectionMatrix = CP_Matrix_Multiply(translate, yReverse);
 }
 
+/*!
+@brief Initilize default values of camera. This should be called in each scene's Init
+@param camera - pointer that points to the camera to initialize.
+@return void - none
+*//*________________________________________________________________________
+_*/
 void Camera_Init(struct Camera* camera)
 {
 	camera->position = CP_Vector_Set(0.0f, 0.0f);
@@ -27,7 +46,12 @@ void Camera_Init(struct Camera* camera)
 
 }
 
-
+/*!
+@brief Update matrices of the camera and use CP_Setting_ApplyMatrix to apply the VPMatrix to the world.
+@param camera - pointer that points to the camera to initialize.
+@return void - none
+*//*________________________________________________________________________
+_*/
 void Camera_Update(struct Camera* camera)
 {
 	CP_Matrix scale = CP_Matrix_Scale((camera->scale));
@@ -47,17 +71,37 @@ void Camera_Update(struct Camera* camera)
 	CP_Settings_ApplyMatrix(camera->VPMatrix);
 }
 
-
+/*!
+@brief Helper function to convert from screen space to world space coordinates
+@param camera - pointer that points to the camera to initialize.
+@param screenCoords - vector2 containing the screen space coodinates to be converted
+@return void - none
+*//*________________________________________________________________________
+_*/
 CP_Vector Camera_ScreenToWorldSpace(struct Camera* camera, CP_Vector screenCoords)
 {
 	return CP_Vector_MatrixMultiply(CP_Matrix_Inverse(camera->VPMatrix), screenCoords);
 }
 
+
+/*!
+@brief Helper function to convert from world space to screen space coordinates
+@param camera - pointer that points to the camera to initialize.
+@param worldCoords - vector2 containing the world space coodinates to be converted
+@return void - none
+*//*________________________________________________________________________
+_*/
 CP_Vector Camera_WorldToScreenSpace(struct Camera* camera, CP_Vector worldCoords)
 {
 	return CP_Vector_MatrixMultiply(camera->VPMatrix,worldCoords);
 }
 
+/*!
+@brief default camera controls using arrow keys for movements and I and O for zoom
+@param camera - pointer that points to the camera to initialize.
+@return void - none
+*//*________________________________________________________________________
+_*/
 void Camera_Input(struct Camera* camera)
 {
 	float cameraSpeed = 200.0f;

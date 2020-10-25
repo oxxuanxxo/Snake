@@ -26,10 +26,10 @@ void foodSpawn(struct SnakeBody* sb)
 
 void FoodCollision_update(struct SnakeBody* sb)
 {
-	CP_Vector food_Dist = CP_Vector_Subtract(foodPos, sb->head->position);
-	CP_Vector food_Norm = CP_Vector_Normalize(food_Dist);
+	//CP_Vector food_Dist = CP_Vector_Subtract(foodPos, sb->head->position);
+	//CP_Vector food_Norm = CP_Vector_Normalize(food_Dist);
 
-	if ((food_Norm.x == sb->dir.x) && (food_Norm.y == sb->dir.y))
+	if ((foodPos.x == sb->head->position.x) && (foodPos.y == sb->head->position.y))
 	{
 		float a = CP_Vector_Distance(foodPos, sb->head->position);
 		if (a <= 50)
@@ -58,7 +58,6 @@ void FoodCollision_update(struct SnakeBody* sb)
 				foodCollide = 0;
 				return;
 			}
-
 		}
 }
 

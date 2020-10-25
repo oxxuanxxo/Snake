@@ -1,6 +1,7 @@
 #include "Snake.h"
 #include "../Source/Scenes/DemoScene.h"
 #include "../header/Food.h"
+#include "../header/GameOver.h"
 
 
 void Snake_init()
@@ -37,8 +38,10 @@ void Snake_gameupdate(float dt)
 	SnakeBodyUpdate(&snakeBody,dt);
 	if (SnakeBodyCollision(&snakeBody))
 	{
-		//CP_Engine_SetNextGameState(GameOver_init(), GameOver_update(), GameOver_exit());
-		CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);
+		CP_Engine_SetNextGameState(GameOver_init, GameOver_update, GameOver_exit);
+		//CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);
+		//GameOver_init();
+		//GameOver_update();
 	}
 	FoodCollision_update(&snakeBody);
 }

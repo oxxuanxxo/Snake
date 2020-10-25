@@ -1,3 +1,10 @@
+/*!
+@file Score.h
+@author Daniel Chua (yeechendaniel.chua)
+@date 15/10/20
+@brief This file defines the camera structure and functions related to camera.
+*//*________________________________________________________________________
+_*/
 #ifndef _CAMERA_H
 #define _CAMERA_H
 
