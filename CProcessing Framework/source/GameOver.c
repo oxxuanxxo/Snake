@@ -2,7 +2,7 @@
 #include "../header/GlobalDef.h"
 #include "../Snake/Snake.h"
 
-void GameOver_init()
+void GameOver_init(void)
 {
 	CP_Settings_Background(CP_Color_Create(0, 0, 0, 255));
 	gameOver = CP_Image_Load("../Images/GameOver.png");
@@ -15,7 +15,7 @@ void GameOver_init()
 
 	//restart button
 
-	restartBut.x = WINDOW_WIDTH / 2;
+		restartBut.x = WINDOW_WIDTH / 2;
 		restartBut.y = (WINDOW_HEIGHT / 5) * 3;
 		restartBut.size_x = 100;
 		restartBut.size_y = 100;
@@ -26,23 +26,25 @@ void GameOver_init()
 
 		menuBut.x = WINDOW_WIDTH / 2;
 		menuBut.y = (WINDOW_HEIGHT / 5) * 4;
-		restartBut.size_x = 100;
-		restartBut.size_y = 100;
-		restartBut.text = "Menu";
-
+		menuBut.size_x = 100;
+		menuBut.size_y = 100;
+		menuBut.text = "Menu";
 
 	//draw restart button
+	CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
 	CP_Graphics_DrawRect(restartBut.x - restartBut.size_x / 2, restartBut.y - restartBut.size_y / 2, restartBut.size_x, restartBut.size_y);
 	CP_Settings_Fill(CP_Color_Create(0,0,0,255));
 	CP_Font_DrawText(restartBut.text, restartBut.x, restartBut.y);
 
 	//draw menu button
+	CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
 	CP_Graphics_DrawRect(menuBut.x - menuBut.size_x / 2, menuBut.y - menuBut.size_y / 2, menuBut.size_x, menuBut.size_y);
 	CP_Settings_Fill(CP_Color_Create(0, 0, 0, 255));
 	CP_Font_DrawText(menuBut.text, menuBut.x, menuBut.y);
+	
 
 }
-void GameOver_update()
+void GameOver_update(void)
 {
 	if(CP_Input_MouseClicked())
 		if (
@@ -64,6 +66,7 @@ void GameOver_update()
 		{
 			CP_Engine_SetNextGameState(MainMenu_Init, MainMenu_Update, MainMenu_Exit);
 		}
+		
 
 	
 }
@@ -73,7 +76,7 @@ void GameOver_render(void)
 	
 }
 
-void GameOver_exit()
+void GameOver_exit(void)
 {
 	
 }

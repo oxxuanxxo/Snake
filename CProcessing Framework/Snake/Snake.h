@@ -3,6 +3,7 @@
 #include "../CProcessing/inc/cprocessing.h"
 #include "../Source/Camera.h"
 #include "SnakeBody.h"
+#include "../header/GameOver.h"
 
 
 CP_Color bg;
