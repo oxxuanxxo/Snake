@@ -1,5 +1,5 @@
 /*!
-@file HighScoreScene.c
+@file HighScoreScene.h
 @author Daniel Chua (yeechendaniel.chua)
 @date 20/10/20
 @brief This file contains the HighScore scene with its init, update render and exit functions

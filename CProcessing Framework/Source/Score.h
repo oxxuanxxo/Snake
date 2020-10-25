@@ -1,8 +1,8 @@
 /*!
-@file Score.c
+@file Score.h
 @author Daniel Chua (yeechendaniel.chua)
 @date 20/10/20
-@brief This file contains functions that deals with the Score structure type.
+@brief This file define the Score structure type and contains functions that deals with it.
 *//*________________________________________________________________________
 _*/
 
@@ -22,7 +22,7 @@ struct Score
 int LoadScoreFromFile(struct Score* ,char* filePath);
 void WriteScoreToFile(struct Score* scoreArr,int size ,char* filePath);
 void RenderScore(struct Score score, float y);
-void SortScoreArr(struct Score scoreArr[], int size);
+void SortScoreArr(struct Score* scoreArr, int size);
 
 
 #endif
