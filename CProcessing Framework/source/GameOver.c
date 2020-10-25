@@ -4,14 +4,7 @@
 
 void GameOver_init(void)
 {
-	CP_Settings_Background(CP_Color_Create(0, 0, 0, 255));
-	gameOver = CP_Image_Load("../Images/GameOver.png");
-
-	//draw "Game Over" image
-	float gameOverWidth, gameOverHeight;
-	gameOverWidth = WINDOW_WIDTH / 2;
-	gameOverHeight = WINDOW_HEIGHT / 4;
-	CP_Image_Draw(gameOver, gameOverWidth, gameOverHeight, 150, 150, 255);
+	CP_Settings_Background(CP_Color_Create(255, 255, 255, 255));
 
 	//restart button
 
@@ -46,6 +39,14 @@ void GameOver_init(void)
 }
 void GameOver_update(void)
 {
+	gameOver = CP_Image_Load("./Images/GameOver.png");
+
+	//draw "Game Over" image
+	float gameOverWidth, gameOverHeight;
+	gameOverWidth = WINDOW_WIDTH / 2;
+	gameOverHeight = (WINDOW_HEIGHT / 5) * 2;
+	CP_Image_Draw(gameOver, gameOverWidth, gameOverHeight, 500, 500, 255);
+
 	if(CP_Input_MouseClicked())
 		if (
 			(CP_Input_GetMouseX() >= restartBut.x - restartBut.size_x / 2) && 
