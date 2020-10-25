@@ -1,11 +1,26 @@
+/*!
+@file HighScoreScene.c
+@author Daniel Chua (yeechendaniel.chua)
+@date 20/10/20
+@brief This file contains the HighScore scene with its init, update render and exit functions
+*//*________________________________________________________________________
+_*/
+
 #include "HighScoreScene.h"
+#include "../../header/GlobalDef.h"
 #include <stdio.h>
 
+/*!
+@brief initialize values used in high score scene
+@param void - none
+@return void - none
+*//*________________________________________________________________________
+_*/
 void HighScore_Init(void)
 {
 	Camera_Init(&cam);
 	isScorePage = false;
-	currScore = 70;
+	currScore = score;
 	alphabetSelection = 1;
 
 	for (int i = 0; i < 3; ++i)
@@ -26,6 +41,12 @@ void HighScore_Init(void)
 
 }
 
+/*!
+@brief Update loop of high score scene, the render is called in here and the isScorePage boolean used to toggle state.
+@param void - none
+@return void - none
+*//*________________________________________________________________________
+_*/
 void HighScore_Update(void)
 {
 	dt = CP_System_GetDt();
@@ -121,6 +142,13 @@ void HighScore_Update(void)
 	HighScore_Render();
 }
 
+
+/*!
+@brief Render loop of high score scene. This function is called at the end of the update loop.
+@param void - none
+@return void - none
+*//*________________________________________________________________________
+_*/
 void HighScore_Render(void)
 {
 	CP_Settings_Background(bgColor);
@@ -175,6 +203,13 @@ void HighScore_Render(void)
 
 }
 
+
+/*!
+@brief Exit function for the high score scene. Free memory
+@param void - none
+@return void - none
+*//*________________________________________________________________________
+_*/
 void HighScore_Exit(void)
 {
 

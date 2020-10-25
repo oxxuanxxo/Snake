@@ -1,3 +1,11 @@
+/*!
+@file Score.c
+@author Daniel Chua (yeechendaniel.chua)
+@date 20/10/20
+@brief This file contains functions that deals with the Score structure type.
+*//*________________________________________________________________________
+_*/
+
 #ifndef _SCORE_H
 #define _SCORE_H
 

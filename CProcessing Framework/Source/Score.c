@@ -1,5 +1,21 @@
+/*!
+@file Score.c
+@author Daniel Chua (yeechendaniel.chua)
+@date 20/10/20
+@brief This file contains functions that deals with the Score structure type.
+*//*________________________________________________________________________
+_*/
+
 #include "Score.h"
 
+
+/*!
+@brief Load the score data from an exisiting file (.csv). Assumes size to be 10.
+@param score - score pointer, takes in the array and update its values according to the .csv file
+@param filePath - c-string that contains the file path to be read.
+@return int - returns number of entry read (0-10)
+*//*________________________________________________________________________
+_*/
 int LoadScoreFromFile(struct Score* score, char* filePath)
 {
 	FILE* file;
@@ -32,6 +48,14 @@ int LoadScoreFromFile(struct Score* score, char* filePath)
 	return 0;
 }
 
+/*!
+@brief writes the scores based on a score array into a specified (.csv) file.
+@param scoreArr - Score pointer that points to the array of scores to be written
+@param size - size of score array
+@param filePath - c-string that contains the file to be written to.
+@return void - none
+*//*________________________________________________________________________
+_*/
 void WriteScoreToFile(struct Score* scoreArr, int size, char* filePath)
 {
 	FILE* file;
@@ -51,6 +75,13 @@ void WriteScoreToFile(struct Score* scoreArr, int size, char* filePath)
 	}
 }
 
+/*!
+@brief Render the score using the CP_Font_DrawText function from CProcessing Framework. This forms one row in the HighScore table.
+@param score - the score structure to be rendered
+@param y - the height of the text to be rendered,
+@return void - none
+*//*________________________________________________________________________
+_*/
 void RenderScore(struct Score score, float y)
 {
 	CP_Font_DrawText(score.name,CP_System_GetDisplayWidth() * 0.125f ,y);
@@ -59,7 +90,15 @@ void RenderScore(struct Score score, float y)
 	CP_Font_DrawText(scoreString, CP_System_GetDisplayWidth() * 0.42f, y);
 }
 
-void SortScoreArr(struct Score scoreArr[],int size)
+
+/*!
+@brief Sorts the given score array based on highest to lowest.
+@param scoreArr - pointer that points to the Score array to be sorted.
+@param size - size of the score array to be sorted.
+@return void - none
+*//*________________________________________________________________________
+_*/
+void SortScoreArr(struct Score* scoreArr,int size)
 {
 	struct Score temp;
 	for (int i = size - 1; i >= 1; --i)

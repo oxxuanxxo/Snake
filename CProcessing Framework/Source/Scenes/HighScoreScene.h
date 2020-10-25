@@ -1,3 +1,11 @@
+/*!
+@file HighScoreScene.c
+@author Daniel Chua (yeechendaniel.chua)
+@date 20/10/20
+@brief This file contains the HighScore scene with its init, update render and exit functions
+*//*________________________________________________________________________
+_*/
+
 #ifndef _HIGH_SCORE_SCENE_H
 #define _HIGH_SCORE_SCENE_H
 
@@ -5,7 +13,7 @@
 #include <stdbool.h>
 #include "../Score.h"
 
-
+//variables to be used in the scene
 struct Camera cam;
 bool isScorePage;
 int currScore;
@@ -16,7 +24,6 @@ float debounceTimer;
 float dt;
 int windowWidth;
 int windowHeight;
-
 struct Score scoreArr[10];
 int numScore;
 
