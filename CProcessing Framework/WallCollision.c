@@ -17,6 +17,19 @@ void WallCollision_Init(void)
 		grid[0][y] = WALL;
 		grid[grid_WIDTH - 1][y] = WALL;
 	}
+
+	for (x = 0; x < grid_WIDTH; x++)
+	{
+		for (y = 0; y < grid_HEIGHT; y++)
+		{
+			if (grid[x][y] == WALL)
+			{
+				CP_Graphics_DrawRect((float)x * 20, (float)y * 20, (float)20, (float)20);
+				CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
+			}
+		}
+	}
+	
 }
 
 

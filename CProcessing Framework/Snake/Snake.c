@@ -2,6 +2,7 @@
 #include "../Source/Scenes/DemoScene.h"
 #include "../header/Food.h"
 #include "../header/GameOver.h"
+#include "../WallCollision.h"
 
 
 void Snake_init()
@@ -11,12 +12,14 @@ void Snake_init()
 
 	score = 0;
 
+	WallCollision_Init();
 	snakeBody = CreateSnakeBody(0.f,0.f,50.f,50.f,0.20f);
 	SnakeBodyAddNode(&snakeBody);
 	SnakeBodyAddNode(&snakeBody);
 	SnakeBodyAddNode(&snakeBody);
 	SnakeBodyAddNode(&snakeBody);
 	SnakeBodyAddNode(&snakeBody);
+	
 	FoodCollision_init();
 }
 void Snake_update()
@@ -44,6 +47,7 @@ void Snake_gameupdate(float dt)
 		//GameOver_update();
 	}
 	FoodCollision_update(&snakeBody);
+	WallCollision_Update(&snakeBody);
 }
 void Snake_inputs(float dt)
 {

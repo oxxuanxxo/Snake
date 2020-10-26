@@ -51,7 +51,6 @@ void FoodCollision_update(struct SnakeBody* sb)
 				{
 					break;
 				}
-				//@todo if( for wall)
 			}
 			if (i == sb->length)
 			{

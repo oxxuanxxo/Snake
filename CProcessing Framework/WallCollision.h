@@ -4,6 +4,7 @@
 #define WALL 1
 #define grid_WIDTH 60
 #define grid_HEIGHT 40
+
 #include "cprocessing.h"
 #include "Snake/SnakeBody.h"
 
