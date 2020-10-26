@@ -34,6 +34,7 @@ void FoodCollision_update(struct SnakeBody* sb)
 		float a = CP_Vector_Distance(foodPos, sb->head->position);
 		if (a <= 50)
 		{
+			//@daniel
 			foodCollide = 1;
 			UpdateScore(1);
 			SnakeBodyAddNode(sb);

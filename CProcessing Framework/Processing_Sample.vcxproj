@@ -29,7 +29,9 @@
     <ClCompile Include="source\GameOver.c" />
     <ClCompile Include="Source\GlobalDef.c" />
     <ClCompile Include="Source\Scenes\DemoScene.c" />
+    <ClCompile Include="source\Scenes\HighScoreScene.c" />
     <ClCompile Include="Source\Scenes\TestScene.c" />
+    <ClCompile Include="source\Score.c" />
     <ClCompile Include="WallCollision.c" />
   </ItemGroup>
   <ItemGroup>
@@ -42,7 +44,9 @@
     <ClInclude Include="source\Camera.h" />
     <ClInclude Include="Source\Collider\BoxCollider.h" />
     <ClInclude Include="Source\Scenes\DemoScene.h" />
+    <ClInclude Include="source\Scenes\HighScoreScene.h" />
     <ClInclude Include="Source\Scenes\TestScene.h" />
+    <ClInclude Include="source\Score.h" />
     <ClInclude Include="WallCollision.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
