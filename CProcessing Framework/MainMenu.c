@@ -5,6 +5,8 @@
 
 void MainMenu_Init()
 {
+	CP_System_SetWindowTitle("Snake");
+
 	CP_Settings_Background(CP_Color_Create(128, 128, 255, 255));
 	
 	//Create play button
