@@ -47,7 +47,7 @@ void MainMenu_Update()
 	float snakeHeight, snakeWidth;
 	snakeWidth = WINDOW_WIDTH / 2;
 	snakeHeight = (WINDOW_HEIGHT / 5) * 1;
-	CP_Image_Draw(snakeMenu, snakeWidth, snakeHeight, 500, 500, 255);
+	CP_Image_Draw(snakeMenu, snakeWidth, snakeHeight, 600, 600, 255);
 
 	float mouseX = CP_Input_GetMouseX(), mouseY = CP_Input_GetMouseY();
 

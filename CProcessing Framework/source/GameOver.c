@@ -57,7 +57,7 @@ void GameOver_update(void)
 	float gameOverWidth, gameOverHeight;
 	gameOverWidth = WINDOW_WIDTH / 2;
 	gameOverHeight = (WINDOW_HEIGHT / 5) * 2;
-	CP_Image_Draw(gameOver, gameOverWidth, gameOverHeight, 500, 500, 255);
+	CP_Image_Draw(gameOver, gameOverWidth, gameOverHeight, 800, 800, 255);
 
 	if(CP_Input_MouseClicked())
 		if (
