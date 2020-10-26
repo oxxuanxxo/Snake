@@ -7,23 +7,25 @@ void MainMenu_Init()
 {
 	CP_System_SetWindowTitle("Snake");
 	CP_Settings_Background(CP_Color_Create(255, 255, 255, 255));
+	CP_Settings_TextAlignment(CP_TEXT_ALIGN_H_CENTER, CP_TEXT_ALIGN_V_MIDDLE);
 	
 	//Create play button
-	CP_Settings_TextAlignment(CP_TEXT_ALIGN_H_CENTER, CP_TEXT_ALIGN_V_MIDDLE);
-	struct Button p = {
+	struct Button playbut = 
+	{
 		.text = "Play",
 		.x = WINDOW_WIDTH / 2,
-		.y = WINDOW_HEIGHT / 2.5f,
+		.y = WINDOW_HEIGHT / 2.25f,
 		.width = 200,
 		.height = 100,
 		.FontC = CP_Color_Create(0, 0, 0, 255),
 		.DefaultC = CP_Color_Create(255, 255, 255, 255),
 		.HoverC = CP_Color_Create(255, 255, 0, 255),
 	};
-	play = p;
+	play = playbut;
 
 	//create quite button
-	struct Button q = {
+	struct Button quitbut = 
+	{
 		.text = "Quit",
 		.x = WINDOW_WIDTH / 2,
 		.y = WINDOW_HEIGHT * 2 / 3,
@@ -33,7 +35,7 @@ void MainMenu_Init()
 		.DefaultC = CP_Color_Create(255, 255, 255, 255),
 		.HoverC = CP_Color_Create(255, 255, 0, 255),
 	};
-	quit = q;
+	quit = quitbut;
 }
 
 void MainMenu_Update()

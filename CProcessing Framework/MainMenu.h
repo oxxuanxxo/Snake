@@ -7,11 +7,8 @@
 struct Button
 {
 	const char* text;
-	float x, y;
-	float width, height;
-	CP_Color FontC;
-	CP_Color DefaultC;
-	CP_Color HoverC;
+	float x, y, width, height;
+	CP_Color FontC, DefaultC, HoverC;
 };
 struct Button play;
 struct Button quit;
