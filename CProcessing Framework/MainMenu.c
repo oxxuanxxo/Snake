@@ -6,7 +6,6 @@
 void MainMenu_Init()
 {
 	CP_System_SetWindowTitle("Snake");
-
 	CP_Settings_Background(CP_Color_Create(255, 255, 255, 255));
 	
 	//Create play button
@@ -39,6 +38,15 @@ void MainMenu_Init()
 
 void MainMenu_Update()
 {
+
+	CP_Image snakeMenu = CP_Image_Load("./Images/SnakeGame.png");
+
+	//draw "Game Over" image
+	float snakeHeight, snakeWidth;
+	snakeWidth = WINDOW_WIDTH / 2;
+	snakeHeight = (WINDOW_HEIGHT / 5) * 1;
+	CP_Image_Draw(snakeMenu, snakeWidth, snakeHeight, 500, 500, 255);
+
 	float mouseX = CP_Input_GetMouseX(), mouseY = CP_Input_GetMouseY();
 
 	
