@@ -2,6 +2,7 @@
 #include "WallCollision.h"
 #include "header/GameOver.h"
 #include "Snake/SnakeBody.h"
+#include "header/GlobalDef.h"
 
 
 void WallCollision_Init(void)
@@ -17,25 +18,30 @@ void WallCollision_Init(void)
 		grid[0][y] = WALL;
 		grid[grid_WIDTH - 1][y] = WALL;
 	}
-	
+
 }
 
 
 void WallCollision_Update(struct SnakeBody* sb)
 {
+
+	CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
 	for (x = 0; x < grid_WIDTH; x++)
 	{
 		for (y = 0; y < grid_HEIGHT; y++)
 		{
 			if (grid[x][y] == WALL)
 			{
-				CP_Graphics_DrawRect((float)x * 20, (float)y * 20, (float)20, (float)20);
-				CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
+				CP_Graphics_DrawRect((float)x * 50, (float)y * 50, (float)50, (float)50);
 			}
 		}
 	}
 
-	if (sb->head->position.x==WALL && sb->head->position.y==WALL) //snake head collide with wall, game over
+	float calone = WINDOW_WIDTH / 2 - 50;
+	float caltwo = WINDOW_HEIGHT / 2 - 50;
+
+	if (sb->head->position.x >= calone || sb->head->position.x < -calone ||
+		sb->head->position.y >= caltwo || sb->head->position.y < -caltwo) //snake head collide with wall, game over
 	{
 		CP_Engine_SetNextGameState(GameOver_init, GameOver_update, GameOver_exit);
 	}

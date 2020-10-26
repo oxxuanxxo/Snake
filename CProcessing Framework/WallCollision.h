@@ -2,8 +2,8 @@
 #ifndef WALLCOLLISION_H
 #define WALLCOLLISION_H
 #define WALL 1
-#define grid_WIDTH 60
-#define grid_HEIGHT 40
+#define grid_WIDTH 24
+#define grid_HEIGHT 16
 
 #include "cprocessing.h"
 #include "Snake/SnakeBody.h"
