@@ -11,14 +11,14 @@ void GameOver_init(void)
 		restartBut.x = WINDOW_WIDTH * 0.5f;
 		restartBut.y = (WINDOW_HEIGHT * 0.1f) * 6.0f;
 		restartBut.size_x = 100.0f;
-		restartBut.size_y = 100.0f;
+		restartBut.size_y = 75.0f;
 		restartBut.text = "Restart";
 
 	//menu button
 		menuBut.x = WINDOW_WIDTH * 0.5f;
 		menuBut.y = (WINDOW_HEIGHT * 0.1f) * 7.0f;
 		menuBut.size_x = 100.0f;
-		menuBut.size_y = 100.0f;
+		menuBut.size_y = 75.0f;
 		menuBut.text = "Menu";
 
 	//highscore button	
@@ -26,7 +26,7 @@ void GameOver_init(void)
 		highscoreBut.x = WINDOW_WIDTH * 0.5;
 		highscoreBut.y = (WINDOW_HEIGHT * 0.1f) * 8.0f;
 		highscoreBut.size_x = 100.0f;
-		highscoreBut.size_y = 100.0f;
+		highscoreBut.size_y = 75.0f;
 		highscoreBut.text = "Highscore";
 
 	//draw restart button
