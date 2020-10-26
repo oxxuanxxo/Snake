@@ -40,8 +40,8 @@ void WallCollision_Update(struct SnakeBody* sb)
 	float calone = WINDOW_WIDTH / 2 - 50;
 	float caltwo = WINDOW_HEIGHT / 2 - 50;
 
-	if (sb->head->position.x >= calone || sb->head->position.x <= -calone ||
-		sb->head->position.y >= caltwo || sb->head->position.y <= -caltwo) //snake head collide with wall, game over
+	if (sb->head->position.x >= calone || sb->head->position.x < -calone ||
+		sb->head->position.y >= caltwo || sb->head->position.y < -caltwo) //snake head collide with wall, game over
 	{
 		CP_Engine_SetNextGameState(GameOver_init, GameOver_update, GameOver_exit);
 	}
