@@ -1,7 +1,7 @@
-#include "../header/GameOver.h"
-#include "../header/GlobalDef.h"
+#include "GameOver.h"
+#include "../GlobalDef.h"
 #include "../Snake/Snake.h"
-#include "Scenes/HighScoreScene.h"
+#include "HighScoreScene.h"
 
 void GameOver_init(void)
 {

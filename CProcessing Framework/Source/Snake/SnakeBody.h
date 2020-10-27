@@ -1,10 +1,9 @@
-#pragma once
 #ifndef SNAKEBODY_H
 #define SNAKEBODY_H
 
-#include "../CProcessing/inc/cprocessing.h"
-#include "../Source/Collider/BoxCollider.h"
-#include "../header/GlobalDef.h"
+#include "cprocessing.h"
+#include "../Collider/BoxCollider.h"
+#include "../GlobalDef.h"
 
 //snake head
 

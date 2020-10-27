@@ -1,7 +1,7 @@
 #ifndef _TEST_SCENE_H
 #define _TEST_SCENE_H
 
-#include "../Camera.h"
+#include "../Camera/Camera.h"
 
 struct Camera cam;
 

@@ -1,9 +1,9 @@
 #ifndef SNAKE_H
 #define SNAKE_H
-#include "../CProcessing/inc/cprocessing.h"
-#include "../Source/Camera.h"
+#include "cprocessing.h"
+#include "../Camera/Camera.h"
 #include "SnakeBody.h"
-#include "../header/GameOver.h"
+#include "../Scenes/GameOver.h"
 
 
 CP_Color bg;

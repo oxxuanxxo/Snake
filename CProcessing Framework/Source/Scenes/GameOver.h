@@ -1,7 +1,8 @@
 #ifndef GAMEOVER_H
 #define GAMEOVER_H
-#include "../CProcessing/inc/cprocessing.h"
-#include "../MainMenu.h"
+
+#include "cprocessing.h"
+#include "MainMenu.h"
 
 CP_Image gameOver;
 

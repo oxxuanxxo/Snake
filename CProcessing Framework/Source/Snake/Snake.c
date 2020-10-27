@@ -1,8 +1,8 @@
 #include "Snake.h"
-#include "../Source/Scenes/DemoScene.h"
-#include "../header/Food.h"
-#include "../header/GameOver.h"
-#include "../WallCollision.h"
+#include "../Scenes/DemoScene.h"
+#include "Food.h"
+#include "../Scenes/GameOver.h"
+#include "../Collider/WallCollision.h"
 
 
 void Snake_init()

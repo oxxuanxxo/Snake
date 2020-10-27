@@ -11,12 +11,12 @@
 //
 // Copyright © 2020 DigiPen, All rights reserved.
 //---------------------------------------------------------
-#include "header/GlobalDef.h"
+#include "GlobalDef.h"
 #include "cprocessing.h"
-#include "MainMenu.h"
+#include "Scenes/MainMenu.h"
 #include "Snake/Snake.h"
-#include "WallCollision.h"
-#include "Source/Scenes/HighScoreScene.h"
+#include "Collider/WallCollision.h"
+#include "Scenes/HighScoreScene.h"
 
 // use CP_Engine_SetNextGameState to specify this function as the initialization function
 // this function will be called once at the beginning of the program

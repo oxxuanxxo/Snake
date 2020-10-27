@@ -1,5 +1,5 @@
 #include "TestScene.h"
-#include "../../Snake/Snake.h"
+#include "../Snake/Snake.h"
 #include <stdio.h>
 
 void TestScene_Init(void)

@@ -19,36 +19,36 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
-    <ClCompile Include="MainMenu.c" />
-    <ClCompile Include="Snake\Snake.c" />
-    <ClCompile Include="Snake\SnakeBody.c" />
-    <ClCompile Include="Source\Camera.c" />
+    <ClCompile Include="Source\Camera\Camera.c" />
     <ClCompile Include="Source\Collider\BoxCollider.c" />
-    <ClCompile Include="source\Food.c" />
-    <ClCompile Include="source\GameOver.c" />
+    <ClCompile Include="Source\Collider\WallCollision.c" />
     <ClCompile Include="Source\GlobalDef.c" />
+    <ClCompile Include="Source\main.c" />
     <ClCompile Include="Source\Scenes\DemoScene.c" />
-    <ClCompile Include="source\Scenes\HighScoreScene.c" />
+    <ClCompile Include="Source\Scenes\GameOver.c" />
+    <ClCompile Include="Source\Scenes\HighScoreScene.c" />
+    <ClCompile Include="Source\Scenes\MainMenu.c" />
     <ClCompile Include="Source\Scenes\TestScene.c" />
-    <ClCompile Include="source\Score.c" />
-    <ClCompile Include="WallCollision.c" />
+    <ClCompile Include="Source\Score.c" />
+    <ClCompile Include="Source\Snake\Food.c" />
+    <ClCompile Include="Source\Snake\Snake.c" />
+    <ClCompile Include="Source\Snake\SnakeBody.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\Food.h" />
-    <ClInclude Include="header\GameOver.h" />
-    <ClInclude Include="header\GlobalDef.h" />
-    <ClInclude Include="MainMenu.h" />
-    <ClInclude Include="Snake\Snake.h" />
-    <ClInclude Include="Snake\SnakeBody.h" />
     <ClInclude Include="Source\Button.h" />
-    <ClInclude Include="source\Camera.h" />
+    <ClInclude Include="Source\Camera\Camera.h" />
     <ClInclude Include="Source\Collider\BoxCollider.h" />
+    <ClInclude Include="Source\Collider\WallCollision.h" />
+    <ClInclude Include="Source\GlobalDef.h" />
     <ClInclude Include="Source\Scenes\DemoScene.h" />
-    <ClInclude Include="source\Scenes\HighScoreScene.h" />
+    <ClInclude Include="Source\Scenes\GameOver.h" />
+    <ClInclude Include="Source\Scenes\HighScoreScene.h" />
+    <ClInclude Include="Source\Scenes\MainMenu.h" />
     <ClInclude Include="Source\Scenes\TestScene.h" />
-    <ClInclude Include="source\Score.h" />
-    <ClInclude Include="WallCollision.h" />
+    <ClInclude Include="Source\Score.h" />
+    <ClInclude Include="Source\Snake\Food.h" />
+    <ClInclude Include="Source\Snake\Snake.h" />
+    <ClInclude Include="Source\Snake\SnakeBody.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

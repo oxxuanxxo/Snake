@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{c994ad88-d242-4401-a676-31722f399155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{19cab133-afa8-4ef5-8638-7c86b7fa8398}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Snake">
+      <UniqueIdentifier>{f9c7336e-4fbd-475e-bde4-a1efa54e3134}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{e7b21159-3913-4219-832c-e794f24e6125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collider">
+      <UniqueIdentifier>{6355047b-437a-4540-9c1c-9cd8902cceb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{2cadbc9d-21e9-49f1-9f29-140efb6abe24}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.c" />
+    <ClCompile Include="Source\GlobalDef.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Score.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Snake\Snake.c">
+      <Filter>Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Snake\SnakeBody.c">
+      <Filter>Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\DemoScene.c">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\GameOver.c">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\HighScoreScene.c">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\MainMenu.c">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\TestScene.c">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collider\BoxCollider.c">
+      <Filter>Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collider\WallCollision.c">
+      <Filter>Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Camera\Camera.c">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Snake\Food.c">
+      <Filter>Snake</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Button.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GlobalDef.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Score.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Snake\Snake.h">
+      <Filter>Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Snake\SnakeBody.h">
+      <Filter>Snake</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\DemoScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\GameOver.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\HighScoreScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\MainMenu.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\TestScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Collider\BoxCollider.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Collider\WallCollision.h">
+      <Filter>Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Camera\Camera.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Snake\Food.h">
+      <Filter>Snake</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

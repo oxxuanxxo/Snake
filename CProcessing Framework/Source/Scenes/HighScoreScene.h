@@ -9,7 +9,7 @@ _*/
 #ifndef _HIGH_SCORE_SCENE_H
 #define _HIGH_SCORE_SCENE_H
 
-#include "../Camera.h"
+#include "../Camera/Camera.h"
 #include <stdbool.h>
 #include "../Score.h"
 

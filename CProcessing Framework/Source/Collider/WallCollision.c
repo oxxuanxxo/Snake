@@ -1,8 +1,8 @@
 #include "cprocessing.h"
 #include "WallCollision.h"
-#include "header/GameOver.h"
-#include "Snake/SnakeBody.h"
-#include "header/GlobalDef.h"
+#include "../Scenes/GameOver.h"
+#include "../Snake/SnakeBody.h"
+#include "../GlobalDef.h"
 
 
 void WallCollision_Init(void)

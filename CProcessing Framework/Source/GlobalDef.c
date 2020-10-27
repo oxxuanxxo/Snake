@@ -1,5 +1,6 @@
-#include "../header/GlobalDef.h"
-#include "stdio.h"
+#include "GlobalDef.h"
+#include <stdio.h>
+
 void UpdateScore(int increment)
 {
 	score += increment;

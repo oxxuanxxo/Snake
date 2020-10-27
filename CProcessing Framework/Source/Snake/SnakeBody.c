@@ -1,8 +1,6 @@
 #include "SnakeBody.h"
-#include "stdlib.h"
-#include "stdio.h"
-#include "../CProcessing/inc/cprocessing.h"
-
+#include <stdlib.h>
+#include <stdio.h>
 
 struct SnakeNode CreateSnakeNode(float x, float y, float width, float height)
 {

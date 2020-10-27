@@ -1,4 +1,3 @@
-#pragma once
 #ifndef WALLCOLLISION_H
 #define WALLCOLLISION_H
 #define WALL 1
@@ -6,7 +5,7 @@
 #define grid_HEIGHT 16
 
 #include "cprocessing.h"
-#include "Snake/SnakeBody.h"
+#include "../Snake/SnakeBody.h"
 
 int x, y;
 int grid[grid_WIDTH][grid_HEIGHT];

@@ -1,6 +1,6 @@
 #include "MainMenu.h"
 #include "cprocessing.h"
-#include "Snake/Snake.h"
+#include "../Snake/Snake.h"
 
 
 void MainMenu_Init()

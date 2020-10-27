@@ -7,7 +7,7 @@
 _*/
 
 #include "HighScoreScene.h"
-#include "../../header/GlobalDef.h"
+#include "../GlobalDef.h"
 #include <stdio.h>
 
 /*!

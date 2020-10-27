@@ -1,6 +1,7 @@
 #ifndef BOXCOLLIDER_H
 #define BOXCOLLIDER_H
-#include "../../CProcessing/inc/cprocessing.h"
+
+#include "cprocessing.h"
 
 //basic box collider
 struct BoxCollider

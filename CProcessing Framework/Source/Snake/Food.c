@@ -1,6 +1,6 @@
-#include "../header/Food.h"
-#include "../Snake/SnakeBody.h"
-#include "../header/GlobalDef.h"
+#include "Food.h"
+#include "SnakeBody.h"
+#include "../GlobalDef.h"
 
 
 void FoodCollision_init(void)

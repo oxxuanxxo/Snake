@@ -1,8 +1,8 @@
 #ifndef FOOD_H
 #define FOOD_H
 
-#include "../CProcessing/inc/cprocessing.h"
-#include "../Snake/SnakeBody.h"
+#include "cprocessing.h"
+#include "SnakeBody.h"
 
 int foodCollide;
 CP_Vector foodPos;
