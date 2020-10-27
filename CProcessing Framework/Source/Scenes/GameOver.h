@@ -3,6 +3,7 @@
 
 #include "cprocessing.h"
 #include "MainMenu.h"
+#include "../Button.h"
 
 CP_Image gameOver;
 
@@ -11,16 +12,11 @@ void GameOver_update(void);
 void GameOver_render(void);
 void GameOver_exit(void);
 
-struct myButton
-{
-	float x, y, size_x, size_y;
-	char* text;
-};
 
-struct myButton restartBut;
-struct myButton menuBut;
-struct myButton highscoreBut;
-struct myButton quitBut;
+struct Button restartBut;
+struct Button menuBut;
+struct Button highscoreBut;
+struct Button quitBut;
 
 
 #endif 

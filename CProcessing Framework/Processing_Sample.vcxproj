@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Button.c" />
     <ClCompile Include="Source\Camera\Camera.c" />
     <ClCompile Include="Source\Collider\BoxCollider.c" />
     <ClCompile Include="Source\Collider\WallCollision.c" />

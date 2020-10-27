@@ -1,6 +1,7 @@
 #include "MainMenu.h"
 #include "cprocessing.h"
 #include "../Snake/Snake.h"
+#include "../Button.h"
 
 
 void MainMenu_Init()
@@ -49,13 +50,10 @@ void MainMenu_Update()
 	snakeHeight = (WINDOW_HEIGHT / 5) * 1;
 	CP_Image_Draw(snakeMenu, snakeWidth, snakeHeight, 600, 600, 255);
 
-	float mouseX = CP_Input_GetMouseX(), mouseY = CP_Input_GetMouseY();
+	//float mouseX = CP_Input_GetMouseX(), mouseY = CP_Input_GetMouseY();
 
 	
-	if ((mouseX >= play.x - play.width / 2) &&
-		(mouseX <= play.x + play.width / 2) &&
-		(mouseY >= play.y - play.height / 2) &&
-		(mouseY <= play.y + play.height / 2))
+	if (Button_IsHover(&play) == true)
 	{
 		CP_Settings_Fill(play.HoverC); //mouse over to the button, colour change
 		if (CP_Input_MouseClicked())   //click the play button, direct to snake game
@@ -70,10 +68,7 @@ void MainMenu_Update()
 	CP_Settings_Fill(play.DefaultC);
 	
 	
-	if ((mouseX >= quit.x - quit.width / 2) &&
-		(mouseX <= quit.x + quit.width / 2) && 
-		(mouseY >= quit.y - quit.height / 2) &&
-		(mouseY <= quit.y + quit.height / 2))
+	if (Button_IsHover(&quit))
 	{
 		CP_Settings_Fill(quit.HoverC); //mouse over to the button, colour change
 		if (CP_Input_MouseClicked()) //click the play button, exit the game

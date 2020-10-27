@@ -2,6 +2,7 @@
 #define _BUTTON_H
 
 #include "cprocessing.h"
+#include <stdbool.h>
 
 struct Button
 {
@@ -9,6 +10,8 @@ struct Button
 	float x, y, width, height;
 	CP_Color FontC, DefaultC, HoverC;
 };
+
+bool Button_IsHover(struct Button* button);
 
 
 #endif
