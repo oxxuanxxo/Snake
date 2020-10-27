@@ -19,6 +19,7 @@ struct myButton
 struct myButton restartBut;
 struct myButton menuBut;
 struct myButton highscoreBut;
+struct myButton quitBut;
 
 
 #endif 
