@@ -84,10 +84,10 @@ void WriteScoreToFile(struct Score* scoreArr, int size, char* filePath)
 _*/
 void RenderScore(struct Score score, float y)
 {
-	CP_Font_DrawText(score.name,CP_System_GetDisplayWidth() * 0.125f ,y);
+	CP_Font_DrawText(score.name,CP_System_GetDisplayWidth() * 0.175f ,y);
 	char scoreString[6];
 	_itoa_s(score.score, scoreString, 6, 10);
-	CP_Font_DrawText(scoreString, CP_System_GetDisplayWidth() * 0.42f, y);
+	CP_Font_DrawText(scoreString, CP_System_GetDisplayWidth() * 0.3f, y);
 }
 
 

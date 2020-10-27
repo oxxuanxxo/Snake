@@ -16,6 +16,7 @@
 #include "MainMenu.h"
 #include "Snake/Snake.h"
 #include "WallCollision.h"
+#include "Source/Scenes/HighScoreScene.h"
 
 // use CP_Engine_SetNextGameState to specify this function as the initialization function
 // this function will be called once at the beginning of the program
@@ -45,6 +46,7 @@ int main(void)
 {
 	CP_System_SetWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	CP_Engine_SetNextGameState(MainMenu_Init, MainMenu_Update, MainMenu_Exit);
+	//CP_Engine_SetNextGameState(HighScore_Init, HighScore_Update, HighScore_Exit);
 	//CP_Engine_SetNextGameState(Snake_init, Snake_update, Snake_exit);
 	//CP_Engine_SetNextGameState(TestScene_Init,TestScene_Update,TestScene_Exit);;
 	//CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);

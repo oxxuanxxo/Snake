@@ -41,6 +41,7 @@
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Snake\Snake.h" />
     <ClInclude Include="Snake\SnakeBody.h" />
+    <ClInclude Include="Source\Button.h" />
     <ClInclude Include="source\Camera.h" />
     <ClInclude Include="Source\Collider\BoxCollider.h" />
     <ClInclude Include="Source\Scenes\DemoScene.h" />

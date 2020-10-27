@@ -14,22 +14,23 @@ _*/
 #include "../Score.h"
 
 //variables to be used in the scene
-struct Camera cam;
 bool isScorePage;
+int windowWidth;
+int windowHeight;
+int numScore;
 int currScore;
 int alphabetSelection;
 char name[4];
 char printString[20];
 float debounceTimer;
-float dt;
-int windowWidth;
-int windowHeight;
+
 struct Score scoreArr[10];
-int numScore;
 
 CP_Color bgColor;
 CP_Color selectionSq;
 CP_Color textColor;
+
+CP_Image hsTextImage;
 
 void HighScore_Init(void);
 void HighScore_Update(void);
