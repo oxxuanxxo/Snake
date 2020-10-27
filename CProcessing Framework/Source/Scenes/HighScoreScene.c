@@ -8,6 +8,7 @@ _*/
 
 #include "HighScoreScene.h"
 #include "../GlobalDef.h"
+#include "MainMenu.h"
 #include <stdio.h>
 
 /*!
@@ -18,7 +19,7 @@ _*/
 _*/
 void HighScore_Init(void)
 {
-	isScorePage = true;
+	isScorePage = false;
 	currScore = score;
 	alphabetSelection = 1;
 
@@ -35,12 +36,26 @@ void HighScore_Init(void)
 	windowWidth = CP_System_GetWindowWidth();
 	windowHeight = CP_System_GetWindowHeight();
 
-	numScore = LoadScoreFromFile(scoreArr, "./Assets/Highscore.csv");
+	//Button intialization
+	menuButton.x = windowWidth - 200.0f;
+	menuButton.y = windowHeight - 100.0f;
+	menuButton.width = 200.0f;
+	menuButton.height = 100.0f;
+	menuButton.text = "Main Menu";
+	menuButton.FontC = CP_Color_Create(0, 0, 0, 255);
+	menuButton.DefaultC = CP_Color_Create(255, 255, 255, 255);
+	menuButton.HoverC = CP_Color_Create(255, 255, 0, 255);
 
+	//Loading assets
+	numScore = LoadScoreFromFile(scoreArr, "./Assets/Highscore.csv");
 	hsTextImage = CP_Image_Load("./Images/Highscore.png");
 
 	SortScoreArr(scoreArr, numScore);
 
+	if (scoreArr[numScore].score >= currScore)
+	{
+		isScorePage = true;
+	}
 }
 
 /*!
@@ -52,8 +67,6 @@ _*/
 void HighScore_Update(void)
 {
 	float dt = CP_System_GetDt();
-
-
 	
 	if (isScorePage == false)
 	{
@@ -109,37 +122,34 @@ void HighScore_Update(void)
 			}
 			else
 			{
-				bool newHighscore = false;
-				int index = 9;
-				while (index >= 0)
-				{
-					if (scoreArr[index].score < currScore)
-					{
-						newHighscore = true;
-						break;
-					}
-					index--;
-				}
-				if (newHighscore)
+				//bool newHighscore = false;
+				//int index = 9;
+				
+				if (scoreArr[9].score <= currScore)
 				{
 					for (int i = 0; i < 4; ++i)
 					{
 						scoreArr[9].name[i] = name[i];
 					}
 					scoreArr[9].score = currScore;
-					SortScoreArr(scoreArr, ++numScore);
+					SortScoreArr(scoreArr, numScore);
 					WriteScoreToFile(scoreArr, numScore,"./Assets/Highscore.csv");
 				}
 
 			}
 			isScorePage = true;
 		}
-
+	}
+	else
+	{
+		if (CP_Input_MouseClicked() && Button_IsHover(&menuButton))
+		{
+			CP_Engine_SetNextGameState(MainMenu_Init, MainMenu_Update, MainMenu_Exit);
+		}
 	}
 	
 	HighScore_Render();
 }
-
 
 /*!
 @brief Render loop of high score scene. This function is called at the end of the update loop.
@@ -158,9 +168,6 @@ void HighScore_Render(void)
 
 	if (isScorePage == false)
 	{
-
-
-
 		//draw selection square
 		CP_Settings_Fill(selectionSq);
 		switch (alphabetSelection)
@@ -192,22 +199,21 @@ void HighScore_Render(void)
 		sprintf_s(printString, 20, "Score : %d", currScore);
 		CP_Font_DrawText(printString, windowWidth * 0.5f, windowHeight * 0.6f);
 	}
-	
 	else
 	{
-
 		CP_Settings_Fill(textColor);
 		CP_Settings_TextSize(50.0f);
 		
-		//CP_Font_DrawText("Highscore", windowWidth * 0.35f, windowHeight * 0.1f);
 		for (int i = 0; i < numScore; ++i)
 		{
 			RenderScore(scoreArr[i], windowHeight * (i + 6) * 0.06f);
 		}
+		
+		CP_Settings_TextSize(30.0f);
+		RenderButton(&menuButton);
+
 	}
-
 }
-
 
 /*!
 @brief Exit function for the high score scene. Free memory

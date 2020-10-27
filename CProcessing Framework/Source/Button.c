@@ -14,3 +14,15 @@ bool Button_IsHover(struct Button* button)
 	}
 	return false;
 }
+
+void RenderButton(struct Button* button)
+{
+	CP_Settings_Fill(button->DefaultC);
+	if (Button_IsHover(button) == true)
+	{
+		CP_Settings_Fill(button->HoverC);
+	}
+	CP_Graphics_DrawRect(button->x - button->width * 0.5f, button->y - button->height * 0.5f, button->width, button->height);
+	CP_Settings_Fill(button->FontC);
+	CP_Font_DrawText(button->text, button->x, button->y);
+}

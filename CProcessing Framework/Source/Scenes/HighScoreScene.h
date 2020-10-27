@@ -12,6 +12,7 @@ _*/
 #include "../Camera/Camera.h"
 #include <stdbool.h>
 #include "../Score.h"
+#include "../Button.h"
 
 //variables to be used in the scene
 bool isScorePage;
@@ -25,6 +26,7 @@ char printString[20];
 float debounceTimer;
 
 struct Score scoreArr[10];
+struct Button menuButton;
 
 CP_Color bgColor;
 CP_Color selectionSq;
@@ -36,6 +38,4 @@ void HighScore_Init(void);
 void HighScore_Update(void);
 void HighScore_Render(void);
 void HighScore_Exit(void);
-
-
 #endif

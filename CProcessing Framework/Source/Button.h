@@ -12,6 +12,6 @@ struct Button
 };
 
 bool Button_IsHover(struct Button* button);
-
+void RenderButton(struct Button* button);
 
 #endif
