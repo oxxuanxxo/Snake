@@ -4,8 +4,15 @@
 #include "../Scenes/GameOver.h"
 #include "../Collider/WallCollision.h"
 
+/*!
+@file Snake.c
+@brief the game scene
+*//*_________________________________________________________________________*/
 
-void Snake_init()
+/*!
+@brief the initialization phase for all the elements of the game
+*//*_________________________________________________________________________*/
+void Snake_init(void)
 {
 	Camera_Init(&cam);
 	bg = CP_Color_Create(0, 0, 0, 255);
@@ -14,7 +21,8 @@ void Snake_init()
 	scoreText[0] = '\0';
 
 	WallCollision_Init();
-	snakeBody = CreateSnakeBody(0.f,0.f,50.f,50.f,0.20f);
+	snakeBody = CreateSnakeBody(0.f,0.f,50.f,50.f,0.20f); // create the initial head
+	//the block of the body
 	SnakeBodyAddNode(&snakeBody);
 	SnakeBodyAddNode(&snakeBody);
 	SnakeBodyAddNode(&snakeBody);
@@ -23,11 +31,15 @@ void Snake_init()
 	
 	FoodCollision_init();
 }
-void Snake_update()
+/*!
+@brief contains all the calculations and rendering sequence of the game
+*//*_________________________________________________________________________*/
+void Snake_update(void)
 {
-	float dt = CP_System_GetDt();
+	float dt = CP_System_GetDt();// get deltatime
+
 	Snake_gameupdate(dt);
-	Snake_inputs(dt);
+	Snake_inputs();
 
 	//draw text
 	CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
@@ -37,26 +49,26 @@ void Snake_update()
 	Snake_render();
 	
 }
+/*!
+@brief updates for the snake game object and interactions 
+	   closely related to it
+@param dt deltatime for counting time elpased
+*//*_________________________________________________________________________*/
 void Snake_gameupdate(float dt)
 {
 	SnakeBodyUpdate(&snakeBody,dt);
 	if (SnakeBodyCollision(&snakeBody))
 	{
 		CP_Engine_SetNextGameState(GameOver_init, GameOver_update, GameOver_exit);
-		//CP_Engine_SetNextGameState(DemoScene_Init, DemoScene_Update, DemoScene_Exit);
-		//GameOver_init();
-		//GameOver_update();
 	}
 	FoodCollision_update(&snakeBody);
 	WallCollision_Update(&snakeBody);
 }
-void Snake_inputs(float dt)
+/*!
+@brief handles all the inputs for the snake game
+*//*_________________________________________________________________________*/
+void Snake_inputs()
 {
-	if (CP_Input_KeyDown(KEY_ESCAPE))//press esc to terminate app
-	{
-		CP_Engine_Terminate();
-	}
-
 	if (CP_Input_KeyDown(KEY_W) )
 	{
 		SnakeSetDirection(&snakeBody, CP_Vector_Set(0.f, 1.f));
@@ -74,6 +86,10 @@ void Snake_inputs(float dt)
 		SnakeSetDirection(&snakeBody, CP_Vector_Set(1.f, 0.f));
 	}
 }
+/*!
+@brief contains all rendering functions for the snake game 
+		after the camera update
+*//*_________________________________________________________________________*/
 void Snake_render(void)
 {
 	CP_Settings_Background(bg);//set bg to black and works as a clear buffer
@@ -81,8 +97,10 @@ void Snake_render(void)
 	FoodCollision_render();
 }
 
-
-void Snake_exit()
+/*!
+@brief exit sequence for clearing any memory in the game
+*//*_________________________________________________________________________*/
+void Snake_exit(void)
 {
-	DeleteSnakeBody(&snakeBody);
+	DeleteSnakeBody(&snakeBody);//freeing up memory allocated for the snake body
 }

@@ -5,8 +5,8 @@
 #define WINDOW_HEIGHT 800
 #define DEFAULTSNAKELENGTH 4
 
-int score;
-char scoreText[15];
+int score;//amount of food eaten
+char scoreText[15];//text to display score
 
 //increase score by 
 void UpdateScore(int increament);

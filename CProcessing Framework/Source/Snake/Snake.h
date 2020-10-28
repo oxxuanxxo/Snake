@@ -6,7 +6,7 @@
 #include "../Scenes/GameOver.h"
 
 
-CP_Color bg;
+CP_Color bg; //background color
 struct Camera cam;
 
 //snake
@@ -18,7 +18,7 @@ void Snake_exit(void);
 
 //other functions
 void Snake_render(void);
-void Snake_inputs(float dt);
+void Snake_inputs();
 void Snake_gameupdate(float dt);
 
 

@@ -1,7 +1,19 @@
 #include "BoxCollider.h"
+/*!
+@file BoxCollider.c
+@author Leong Jun Xiang(junxiang.leong)
+@date 21/10/2020
+@brief contains functions for check a box to box collision
+*//*_________________________________________________________________________*/
 
 
-
+/*!
+@brief Set a box collider with the define parameters
+@param pos the address of the item attatched with the boxcollider struct
+@param w width of the collider
+@param h height of the collider
+@return struct BoxCollider which would be stored by the object
+*//*_________________________________________________________________________*/
 struct BoxCollider BoxColliderSet(CP_Vector* pos, float w, float h)
 {
 	struct BoxCollider bc;
@@ -10,6 +22,12 @@ struct BoxCollider BoxColliderSet(CP_Vector* pos, float w, float h)
 	bc.height = h;
 	return bc;
 }
+/*!
+@brief Updates the collision between 2 boxcolliders
+@param a first box collider
+@param b second box collider
+@return int:return 1 when collide and 0 if it dosent
+*//*_________________________________________________________________________*/
 int BoxColliderCheckCollision(struct BoxCollider a, struct BoxCollider b)
 {
 	float aw, ah, bw, bh;
