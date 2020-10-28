@@ -10,7 +10,7 @@ void MainMenu_Init()
 	CP_Settings_Background(CP_Color_Create(255, 255, 255, 255));
 	CP_Settings_TextAlignment(CP_TEXT_ALIGN_H_CENTER, CP_TEXT_ALIGN_V_MIDDLE);
 	
-	//Create play button
+	//structure play button
 	struct Button playbut = 
 	{
 		.text = "Play",
@@ -24,7 +24,7 @@ void MainMenu_Init()
 	};
 	play = playbut;
 
-	//create quite button
+	//structure quite button
 	struct Button quitbut = 
 	{
 		.text = "Quit",
@@ -42,7 +42,7 @@ void MainMenu_Init()
 void MainMenu_Update()
 {
 
-	CP_Image snakeMenu = CP_Image_Load("./Images/SnakeGame.png");
+	CP_Image snakeMenu = CP_Image_Load("./Images/SnakeGame.png"); //load image to main menu
 
 	//draw "Game Over" image
 	float snakeHeight, snakeWidth;
@@ -55,7 +55,7 @@ void MainMenu_Update()
 	
 	if (Button_IsHover(&play) == true)
 	{
-		CP_Settings_Fill(play.HoverC); //mouse over to the button, colour change
+		CP_Settings_Fill(play.HoverC); //mouse over to the play button, colour change
 		if (CP_Input_MouseClicked())   //click the play button, direct to snake game
 		{
 			CP_Engine_SetNextGameState(Snake_init, Snake_update, Snake_exit);
@@ -70,8 +70,8 @@ void MainMenu_Update()
 	
 	if (Button_IsHover(&quit))
 	{
-		CP_Settings_Fill(quit.HoverC); //mouse over to the button, colour change
-		if (CP_Input_MouseClicked()) //click the play button, exit the game
+		CP_Settings_Fill(quit.HoverC); //mouse over to the quite button, colour change
+		if (CP_Input_MouseClicked()) //click the quite button, exit the game
 		{
 			CP_Engine_Terminate();
 		}

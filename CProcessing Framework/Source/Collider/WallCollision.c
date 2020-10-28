@@ -25,8 +25,8 @@ void WallCollision_Init(void)
 void WallCollision_Update(struct SnakeBody* sb)
 {
 
-	CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255));
-	for (x = 0; x < grid_WIDTH; x++)
+	CP_Settings_Fill(CP_Color_Create(255, 255, 255, 255)); //fill the wall white color
+	for (x = 0; x < grid_WIDTH; x++) //Draw the wall
 	{
 		for (y = 0; y < grid_HEIGHT; y++)
 		{
@@ -37,11 +37,12 @@ void WallCollision_Update(struct SnakeBody* sb)
 		}
 	}
 
+	//calculate the position snake will collide and die
 	float calone = WINDOW_WIDTH / 2 - 50;
 	float caltwo = WINDOW_HEIGHT / 2 - 50;
 
 	if (sb->head->position.x >= calone || sb->head->position.x < -calone ||
-		sb->head->position.y >= caltwo || sb->head->position.y < -caltwo) //snake head collide with wall, game over
+		sb->head->position.y >= caltwo || sb->head->position.y < -caltwo) //snake head collide with wall, proceed to game over page
 	{
 		CP_Engine_SetNextGameState(GameOver_init, GameOver_update, GameOver_exit);
 	}
