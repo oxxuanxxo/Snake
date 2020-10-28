@@ -1,3 +1,12 @@
+/*!
+@file       GameOver.h
+@author     Chua Yip Xuan (yipxuan.chua)
+@course     GAM100F20
+@section	a
+@brief      This header file stores all important variables need for GameOver.c
+*//*________________________________________________________________________
+_*/
+
 #ifndef GAMEOVER_H
 #define GAMEOVER_H
 

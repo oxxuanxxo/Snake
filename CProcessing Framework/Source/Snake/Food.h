@@ -1,3 +1,12 @@
+/*!
+@file       Food.h
+@author     Chua Yip Xuan (yipxuan.chua)
+@course     GAM100F20
+@section	a
+@brief      This header file stores all important variables need for food.c
+*//*________________________________________________________________________
+_*/
+
 #ifndef FOOD_H
 #define FOOD_H
 

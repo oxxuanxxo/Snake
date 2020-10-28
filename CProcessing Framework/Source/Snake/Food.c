@@ -1,8 +1,20 @@
+/*!
+@file       Food.c
+@author     Chua Yip Xuan (yipxuan.chua)
+@course     GAM100F20
+@section	a
+@brief      This function will check for food collision, and spawn the food at random location
+*//*________________________________________________________________________
+_*/
+
 #include "Food.h"
 #include "SnakeBody.h"
 #include "../GlobalDef.h"
 
-
+/*!
+@brief This function loads the food position as well as the image of the food
+*//*________________________________________________________________________
+_*/
 void FoodCollision_init(void)
 {
 	//set initial coordinates for food
@@ -10,38 +22,41 @@ void FoodCollision_init(void)
 	foodImg = CP_Image_Load("Images/Apple.png");
 }
 
+/*!
+@brief This function will spawn food at random positions when called
+*//*________________________________________________________________________
+_*/
 void foodSpawn(struct SnakeBody* sb)
 {
 	int ScreenWidth, ScreenHeight;
-	ScreenWidth = (int)(WINDOW_WIDTH-100) / (int)(sb->bodyWidth); //1200 / 50 = 24
-	ScreenHeight = (int)(WINDOW_HEIGHT-100)/ (int)(sb->bodyHeight); //800 / 50 = 16
+	ScreenWidth = (int)(WINDOW_WIDTH-100) / (int)(sb->bodyWidth); 
+	ScreenHeight = (int)(WINDOW_HEIGHT-100)/ (int)(sb->bodyHeight); 
 		
 	foodPos.x = (float)((int)((CP_Random_GetInt() % ScreenWidth) - (ScreenWidth / 2))) * (sb->bodyWidth);
 	foodPos.y = (float)((int)((CP_Random_GetInt() % ScreenHeight) - (ScreenHeight / 2))) * (sb->bodyHeight);
 	
-	//foodPos.x = (float)((int)CP_Random_GetFloat() %24 - 12)*(sb -> bodyWidth); 
-	//1200/50 = 24;  %24 is to get grid coords; -12 is to get pos and neg
-	
 }
 
+
+/*!
+@brief This function will check for food collision every frame using CP_Vector_Distance, snakebody node will increase after food collision
+		After food collision, food spawn function will be called to spawn the food at random location (also to make sure the food does not spawn
+		on the snakebody and wall)
+*//*________________________________________________________________________
+_*/
 void FoodCollision_update(struct SnakeBody* sb)
 {
-	//CP_Vector food_Dist = CP_Vector_Subtract(foodPos, sb->head->position);
-	//CP_Vector food_Norm = CP_Vector_Normalize(food_Dist);
 
 	if ((foodPos.x == sb->head->position.x) && (foodPos.y == sb->head->position.y))
 	{
 		float a = CP_Vector_Distance(foodPos, sb->head->position);
 		if (a <= 50)
 		{
-			//@daniel
 			foodCollide = 1;
 			UpdateScore(1);
 			SnakeBodyAddNode(sb);
 		}
 	}
-
-		// @todo make sure it spawn on empty space, not on snake and wall
 		while (foodCollide)
 		{
 			foodSpawn(sb);
@@ -61,6 +76,10 @@ void FoodCollision_update(struct SnakeBody* sb)
 		}
 }
 
+/*!
+@brief This function will render the food image onto the food position coordinates at grid size
+*//*________________________________________________________________________
+_*/
 void FoodCollision_render(void)
 {
 	CP_Image_Draw(foodImg, foodPos.x + 25.0f, foodPos.y + 25.0f, 50.0f, 50.0f, 255);

@@ -1,8 +1,25 @@
+/*!
+@file       GameOver.c
+@author     Chua Yip Xuan (yipxuan.chua)
+@course     GAM100F20
+@section	a
+@brief      Creates the game over screen after snake body or wall collision. The game over menu have four buttons and a title image:
+			1. Restart Button
+			2. Main Menu Button
+			3. Highscore Button
+			4. Quit Button
+*//*________________________________________________________________________
+_*/
+
 #include "GameOver.h"
 #include "../GlobalDef.h"
 #include "../Snake/Snake.h"
 #include "HighScoreScene.h"
 
+/*!
+@brief This function will load the background colour, initialise the button size and position, as well as draw the buttons.
+*//*________________________________________________________________________
+_*/
 void GameOver_init(void)
 {
 	CP_Settings_Background(CP_Color_Create(255, 255, 255, 255));
@@ -28,7 +45,6 @@ void GameOver_init(void)
 		menuBut.HoverC = CP_Color_Create(255, 255, 0, 255);
 
 	//highscore button	
-		//@daniel
 		highscoreBut.x = (WINDOW_WIDTH * 0.1f) * 7.0f;
 		highscoreBut.y = WINDOW_HEIGHT * 0.6f;
 		highscoreBut.width = 200.0f;
@@ -38,7 +54,7 @@ void GameOver_init(void)
 		highscoreBut.DefaultC = CP_Color_Create(255, 255, 255, 255);
 		highscoreBut.HoverC = CP_Color_Create(255, 255, 0, 255);
 
-		//quit button
+	//quit button
 		quitBut.x = WINDOW_WIDTH * 0.5f;
 		quitBut.y = WINDOW_HEIGHT * 0.8f;
 		quitBut.width = 200.0f;
@@ -53,6 +69,11 @@ void GameOver_init(void)
 
 
 }
+
+/*!
+@brief This function will update the title image every frame and check if mouse click on the buttons
+*//*________________________________________________________________________
+_*/
 void GameOver_update(void)
 {
 	gameOver = CP_Image_Load("./Images/GameOver.png");
@@ -75,7 +96,6 @@ void GameOver_update(void)
 		}
 		if (Button_IsHover(&highscoreBut))
 		{
-			//@daniel
 			CP_Engine_SetNextGameState(HighScore_Init, HighScore_Update, HighScore_Exit);
 		}
 		if (Button_IsHover(&quitBut))
@@ -89,6 +109,10 @@ void GameOver_update(void)
 	
 }
 
+/*!
+@brief This function will render the buttons
+*//*________________________________________________________________________
+_*/
 void GameOver_render(void)
 {
 	//draw restart button
