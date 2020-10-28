@@ -92,44 +92,17 @@ void GameOver_update(void)
 void GameOver_render(void)
 {
 	//draw restart button
-	CP_Settings_Fill(restartBut.DefaultC);
-	if (Button_IsHover(&restartBut) == true)
-	{
-		CP_Settings_Fill(restartBut.HoverC);
-	}
-	CP_Graphics_DrawRect(restartBut.x - restartBut.width * 0.5f, restartBut.y - restartBut.height * 0.5f, restartBut.width, restartBut.height);
-	CP_Settings_Fill(restartBut.FontC);
-	CP_Font_DrawText(restartBut.text, restartBut.x, restartBut.y);
+	RenderButton(&restartBut);
 
 	//draw menu button
-	CP_Settings_Fill(menuBut.DefaultC);
-	if (Button_IsHover(&menuBut) == true)
-	{
-		CP_Settings_Fill(menuBut.HoverC);
-	}
-	CP_Graphics_DrawRect(menuBut.x - menuBut.width * 0.5f, menuBut.y - menuBut.height * 0.5f, menuBut.width, menuBut.height);
-	CP_Settings_Fill(menuBut.FontC);
-	CP_Font_DrawText(menuBut.text, menuBut.x, menuBut.y);
+	RenderButton(&menuBut);
 
 	//draw Highscore button
-	CP_Settings_Fill(highscoreBut.DefaultC);
-	if (Button_IsHover(&highscoreBut) == true)
-	{
-		CP_Settings_Fill(highscoreBut.HoverC);
-	}
-	CP_Graphics_DrawRect(highscoreBut.x - highscoreBut.width * 0.5f, highscoreBut.y - highscoreBut.height * 0.5f, highscoreBut.width, highscoreBut.height);
-	CP_Settings_Fill(highscoreBut.FontC);
-	CP_Font_DrawText(highscoreBut.text, highscoreBut.x, highscoreBut.y);
+	RenderButton(&highscoreBut);
 
 	//draw Highscore button
-	CP_Settings_Fill(quitBut.DefaultC);
-	if (Button_IsHover(&quitBut) == true)
-	{
-		CP_Settings_Fill(quitBut.HoverC);
-	}
-	CP_Graphics_DrawRect(quitBut.x - quitBut.width * 0.5f, quitBut.y - quitBut.height * 0.5f, quitBut.width, quitBut.height);
-	CP_Settings_Fill(quitBut.FontC);
-	CP_Font_DrawText(quitBut.text, quitBut.x, quitBut.y);
+	RenderButton(&quitBut);
+
 }
 
 void GameOver_exit(void)

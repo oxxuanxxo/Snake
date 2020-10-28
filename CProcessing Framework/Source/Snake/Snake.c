@@ -11,6 +11,7 @@ void Snake_init()
 	bg = CP_Color_Create(0, 0, 0, 255);
 
 	score = 0;
+	scoreText[0] = '\0';
 
 	WallCollision_Init();
 	snakeBody = CreateSnakeBody(0.f,0.f,50.f,50.f,0.20f);
