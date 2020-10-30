@@ -1,3 +1,9 @@
+/* !
+@file       WallCollision.c
+@author     Wu Pei Fang(peifang.w)
+@brief      This code created the wall, and calculate snake head collision with the wall
+*//*__________________________________________________________________________*/
+
 #include "cprocessing.h"
 #include "WallCollision.h"
 #include "../Scenes/GameOver.h"

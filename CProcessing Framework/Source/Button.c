@@ -1,6 +1,11 @@
 #include "Button.h"
 #include <stdbool.h>
 
+/* !
+@file       Button.c
+@author     Wu Pei Fang(peifang.w)
+@brief      Work the button
+*//*__________________________________________________________________________*/
 bool Button_IsHover(struct Button* button)
 {
 	if (

@@ -1,3 +1,8 @@
+/* !
+@file       MainMenu.h
+@author     Wu Pei Fang(peifang.w)
+@brief      Header file of MainMenu.c
+*//*__________________________________________________________________________*/
 #ifndef MAINMENU_H
 #define MAINMENU_H
 

@@ -1,3 +1,8 @@
+/* !
+@file       MainMenu.c
+@author     Wu Pei Fang(peifang.w)
+@brief      Create the main menu start and quit button.
+*//*__________________________________________________________________________*/
 #include "MainMenu.h"
 #include "cprocessing.h"
 #include "../Snake/Snake.h"
